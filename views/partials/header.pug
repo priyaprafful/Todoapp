@@ -1,0 +1,15 @@
+header.site-header
+  a(href='./')
+    .logo Todoop
+  
+  if allmenuContent != null
+    nav
+      ul
+        each menuLink in allmenuContent.data.menu_links
+          li
+            a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
+              != PrismicDOM.RichText.asText(menuLink.label)
+        li    
+          a(href="/fr-fr") FR/
+          a(href="/en-gb") US
+        a(href="#" onclick='toggleDarkLight()' style = "margin-left:20px") 🌓

@@ -1,0 +1,12 @@
+div.notified-container
+    div.notified-title
+          != PrismicDOM.RichText.asHtml(slice.primary.notified_title, ctx.linkResolver)
+          != PrismicDOM.RichText.asHtml(slice.primary.notified_subtitle, ctx.linkResolver)
+    div.notified-mail
+        p Your email:-
+        input#fname(type="text" name="email" placeholder="pm@prismic.io")
+        - var btnlink = PrismicDOM.Link.url(slice.primary.newsletters_button_link, ctx.linkResolver)
+        - var btnLabel = PrismicDOM.RichText.asText(slice.primary.newslatter_button_label)
+        if ( btnlink && btnLabel != " " )
+          p.btn-link
+            a(href=btnlink) !{btnLabel}

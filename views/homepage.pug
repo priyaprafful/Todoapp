@@ -1,0 +1,31 @@
+extends ./layout.pug
+
+block prepend body
+  include ./partials/header.pug
+
+  - var homepage = homepage_response.data
+  div.main-content
+      div.homepage-title
+        != PrismicDOM.RichText.asHtml( homepage.title)
+      div.btn-content      
+        div.homepage-subtitle 
+         != PrismicDOM.RichText.asHtml( homepage.subtitle)
+        .appstorebutton.iphone
+         a(href='#')
+         img.apple-icon(src="images/apple-image.png")
+         p
+          small Download on the
+          |  App Store
+
+
+  div.container
+      for slice in homepage_response.data.body
+        case slice.slice_type
+          when 'image_slice'
+            include ./partials/imageslice.pug
+          when 'text_section'
+            include ./partials/textslice.pug
+          when 'image_slice'
+            include ./partials/imageslice.pug 
+          when 'notified_slice'
+            include ./partials/notifiedslice.pug   

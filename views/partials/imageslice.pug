@@ -1,0 +1,11 @@
+if (slice.primary.select_image)
+    -var sectionimage = "image-slice-" + slice.primary.select_image
+else
+    -var sectionimage = "image-slice-left"
+
+div.imagecontent    
+    section.content-section(class=sectionimage)
+      img.image1(src=slice.primary.background_image.url)
+    section.content-section
+      img.image2(src=slice.primary.main_image.url)
+      img.image3(src=slice.primary.light_mode.url)

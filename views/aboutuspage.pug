@@ -1,0 +1,29 @@
+extends ./layout.pug
+
+block prepend body
+  include ./partials/header.pug
+
+  - var pageContent = aboutusContent.data
+  div.main-content
+      div.homepage-title
+        != PrismicDOM.RichText.asHtml( pageContent.aboutustitle)
+      div.btn-content      
+        div.homepage-subtitle 
+          != PrismicDOM.RichText.asHtml( pageContent.subtitle)
+        .appstorebutton.iphone
+         a(href='#')
+         img.apple-icon(src="images/twitter-icon-image.png")
+         p
+          small follow us on
+          |  twitter
+
+
+  div.container
+      for slice in aboutusContent.data.body
+        case slice.slice_type
+          when 'full_width_image'
+            include ./partials/fullwidthimage.pug
+          when 'highlighted_slice'
+            include ./partials/heighlighslice.pug 
+          when 'notified_slice'
+            include ./partials/notifiedslice.pug 

@@ -1,0 +1,369 @@
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+.dark-mode a, .dark-mode logo,.dark-mode .appstorebutton p, .dark-mode .footer-logo,.dark-mode .apple-icon{
+  color : white;
+}
+.light-mode a, .light-mode logo,.light-mode .appstorebutton p, .dark-mode .apple-icon{ 
+  color:black;
+}
+.dark-mode .btn-link{
+  background-color: white;
+}
+.dark-mode .image2,.dark-mode  .arrow-light{
+  display: none;
+}
+.dark-mode .image3,.dark-mode .arrow-dark{
+  display: block;
+}
+.dark-mode .image1{
+  opacity: 0.2;
+}
+.light-mode .image2,.light-mode .arrow-light{
+  display: block;
+}
+.light-mode .image3,.light-mode .arrow-dark{
+  display: none;
+}
+.dark-mode .btn-link a {
+  color:black;
+}
+.main-content{
+  margin-left:225px;
+}
+.appstorebutton {
+  height: 72px;
+  width: 240px;
+  margin: 120px 120px 0px 172px;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.iphone {
+border: 2px solid #E4E4E4;
+border-radius: 3px;
+}
+
+.appstorebutton a {
+  color: white;
+  text-decoration: none;
+}
+ 
+.appstorebutton p {
+  font-family: SFProText-Bold;
+  font-size: 27px;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  margin: -46px 0 0px 46px;
+  width: 150px;
+}
+ 
+.appstorebutton p small {
+  font-size: 16px;
+}
+.apple-icon{
+  width: 35.5px;
+  height: 32px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
+/* header css */
+
+.site-header {
+  height: 30px;
+  padding: 20px 0;
+}
+.site-header .logo {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 900;
+  /* margin-left: 164px;
+  margin-top: 46px; */
+  margin:46px 0px 0px 164px;
+  width: 144px;
+  /* color: #000000; */
+}
+.site-header nav {
+  float: right;
+  margin-top: 39px;
+}
+.site-header nav ul {
+  margin-right: 225px;
+}
+.site-header nav li {
+  display: inline-block;
+  margin-left: 34px;
+  
+
+}
+/* homepage css */
+
+.homepage-title  {
+  width: 483px;
+  margin-top: auto;
+
+}
+  .homepage-subtitle {
+    width: 611px;
+    padding-top:20px;
+   }
+   .btn-content{
+     display:inline-flex;
+     margin-top: -144px;
+   }
+  
+ .btn{
+  border: 2px solid #E4E4E4;
+  border-radius: 3px;
+  width:230px;
+  height:72px;
+  /* margin-left: 190px;
+  margin-top: 100px; */
+  margin:100px 0px 0px 190px;
+}
+.btn-text{
+font-family: SFProText-Regular;
+font-size: 16px;
+/* color: #000000; */
+letter-spacing: 0;
+margin-top: 0px;
+}
+.btn-app{
+font-family: SFProText-Bold;
+font-size: 27px;
+/* color: #000000; */
+letter-spacing: 0;
+display: inline-block;
+}
+.imagecontent {
+  position: relative;
+  left:0;
+  top:0;
+}
+.image-slice-right {
+  float:right;
+}
+.image-slice-left {
+  float:left; 
+}
+
+
+.image1 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin-left: 115px;
+} 
+
+.image2 {
+  position: absolute;
+  top:100px;
+  left: 120px;
+ }
+ .image3 {
+  position: absolute;
+  top:100px;
+  left: 120px;
+ }
+ .about-img{
+  position: absolute;
+  top:100px;
+  left: 120px;
+ }
+ .text-container{
+  display: inline-flex;
+  /* margin-left: 225px;
+   margin-top: 120px; */
+   margin: 120px 0px 0px 225px;
+  
+   
+ }
+ .text-content{
+  margin-right: 50px;
+ }
+ .text-content img {
+   margin:50px 0px 30px 0px;
+
+ }
+ 
+.text-content :nth-child(3) {
+width: 446px;
+margin-bottom: 20px;
+margin-top: 30px;
+
+}
+.text-content :nth-child(4){
+  font-family: SFProText-Medium;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 40px;
+  width: 535px;
+  margin-top: 20px;
+}
+.text-desc{
+  margin-right:225px;
+  margin-bottom: 110px;
+}
+
+.text-desc h6{
+font-family: SFProText-Bold;
+font-size: 20px;
+/* color: #191919; */
+letter-spacing: 0;
+line-height: 36px;
+margin-bottom: 0px;
+}
+
+
+.text-desc p{
+  font-family: SFProText-Medium;
+  font-size: 16px;
+  /* color: rgba(25,25,25,0.80); */
+  letter-spacing: 0;
+  line-height: 30px;
+  width: 400px;
+ 
+}
+
+.notified-container{
+  margin-left: 200px;
+  display: inline-flex;
+  margin-top: 100px;
+  margin-right: 225px;
+}
+
+.notified-title h5{
+    width: 640px;
+    margin-bottom: 0px;
+}
+.notified-title h6{
+  width: 545px;
+  margin-top: 20px;
+}
+.notified-mail{
+  margin-top: 100px;
+  margin-left: 180px;
+}
+#fname{
+border: 1px solid #E5E5E5;
+border-radius: 6px;
+padding:12px 58px;
+color: #999999;
+background-color: Transparent;
+}
+.btn-link{
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  padding:10px;
+ 
+}
+.btn-link a{
+  text-decoration: none;
+  font-family: SFProText-Bold;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+}
+footer {
+  margin-top: 166px;
+  display: flex;
+  bottom: 0;
+  height: 60px;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.copy-img{
+  width: 20px;
+  height:20px;
+  margin-left: 190px;
+
+}
+footer p{
+  margin-right: 763px;
+  margin-left: -38px;
+ }
+.footer-logo{
+  width: 20px;
+  height:20px;
+}
+footer img {
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+
+/* aboutus css */
+
+.heighlight-content{
+  display: inline-flex;
+  margin-left: 202px;
+  margin-right: 225px;
+  margin-top: 190px;
+}
+.heighlight-image{
+  margin-right:70px;
+}
+.heighlight-contenttwo h5{
+  margin-top:20px;
+  margin-bottom: auto;
+}
+.heighlight-contenttwo h6{
+  margin: auto;
+}
+
+@media (max-width: 1060px) {
+  .site-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4{
+    font-size:16px;
+  }
+  h5{
+    font-size: 12px;
+  }
+  h6{
+    font-size: 8px;
+  }
+  p{
+    font-size: 6px;
+  }
+  .site-header {
+    height: auto;
+  }
+  .site-header .logo {
+    text-align: center;
+  }
+  .site-header nav {
+    float: left;
+  }
+  .site-header nav li {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

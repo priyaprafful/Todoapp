@@ -1,0 +1,26 @@
+doctype html(lang='en')
+
+head
+  title Multi languauge website
+  link(rel="stylesheet", href="/stylesheets/style.css")
+  link(rel="stylesheet", href="/stylesheets/common.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  
+  // Required for Previews and Experiments
+  script
+    = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
+  script(src="//static.cdn.prismic.io/prismic.min.js")
+  script.
+    function toggleDarkLight() {
+        var body = document.getElementById("body");
+        var currentClass = body.className;
+        body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+    }
+  script(src='https://kit.fontawesome.com/814c5d7779.js')   
+   
+
+body#body.light-mode
+  
+  block body
+  
+  include ./partials/footer.pug

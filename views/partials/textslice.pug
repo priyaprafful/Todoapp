@@ -1,0 +1,8 @@
+div.text-container
+    div.text-content
+        img.arrow-light(src=slice.primary.featurted_image.url)
+        img.arrow-dark(src=slice.primary.arraow_dark_mode.url)
+        != PrismicDOM.RichText.asHtml(slice.primary.featured_title) 
+        != PrismicDOM.RichText.asHtml(slice.primary.featured_subtitle)
+    div.text-desc
+        != PrismicDOM.RichText.asHtml(slice.primary.featured_description)
