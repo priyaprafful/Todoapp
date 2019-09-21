@@ -2,25 +2,62 @@ doctype html(lang='en')
 
 head
   title Multi languauge website
-  link(rel="stylesheet", href="/stylesheets/style.css")
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet", href="/stylesheets/reset.css")
   link(rel="stylesheet", href="/stylesheets/common.css")
-  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  link(rel="stylesheet", href="/stylesheets/style.css")
+  
+  link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
+  
   
   // Required for Previews and Experiments
   script
     = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
   script(src="//static.cdn.prismic.io/prismic.min.js")
-  script.
-    function toggleDarkLight() {
-        var body = document.getElementById("body");
-        var currentClass = body.className;
-        body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
-    }
+  
+  //- script.
+  //-   function toggleColor() {
+  //-     console.log('toggleColor is called')
+  //-     if(getCookie('mode')=="light-mode"){
+  //-       setCookie('mode', 'dark-mode');
+  //-     } else {
+  //-       // by default it is dark color
+  //-       setCookie('mode', 'light-mode');
+  //-     }
+  //-     body.className = getCookie("mode");  
+  //-   }
+  
+  //-   function setCookie(cname, cvalue) {
+  //-     var d = new Date();
+  //-     d.setTime(d.getTime() + (24*60*60*1000));
+  //-     var expires = "expires="+ d.toUTCString();
+  //-     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  //-   }
+  //-   function getCookie(cname) {
+  //-     console.log("get cookie is called");
+  //-     var name = cname + "=";
+  //-     var decodedCookie = decodeURIComponent(document.cookie);
+  //-     console.log("decoded cookie ", decodedCookie);
+  //-     var ca = decodedCookie.split(';');
+  //-     for(var i = 0; i <ca.length; i++) {
+  //-       var c = ca[i];
+  //-       while (c.charAt(0) == ' ') {
+  //-         c = c.substring(1);
+  //-       }
+  //-       if (c.indexOf(name) == 0) {
+  //-         return c.substring(name.length, c.length);
+  //-       }
+  //-     }
+  //-     console.log("get cookie ended", );
+  //-     return "";
+  //-   } 
+    //- window.onload = function () {
+    //-   document.getElementById("body").className = getCookie('mode');
+    //- };
+    
   script(src='https://kit.fontawesome.com/814c5d7779.js')   
    
-
-body#body.light-mode
-  
+// call function  from app js instead of light mode here
+body#body(class=mode)
   block body
-  
   include ./partials/footer.pug

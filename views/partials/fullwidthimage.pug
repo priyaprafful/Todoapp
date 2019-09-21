@@ -1,5 +1,5 @@
-if (slice.primary.select_image)
-    -var sectionimage = "image-slice-" + slice.primary.select_image
+if (slice.primary.mesh_side)
+    -var sectionimage = "image-slice-" + slice.primary.mesh_side
 else
     -var sectionimage = "image-slice-left"
 
@@ -7,4 +7,4 @@ div.imagecontent
     section.content-section(class=sectionimage)
       img.image1(src=slice.primary.background_image.url)
     section.content-section
-      img.about-img(src=slice.primary.full_width_image.url)
+      img.about-img(src=slice.primary.image.url)

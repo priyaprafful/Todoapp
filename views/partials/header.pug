@@ -1,15 +1,16 @@
-header.site-header
-  a(href='./')
-    .logo Todoop
+header.header-fixed
+  .header-limiter
+    a(href='./')
+      img.logo(src="../images/logoimage.png") 
+      logo.logo Todoop
+     
   
-  if allmenuContent != null
-    nav
-      ul
+    if allmenuContent != null
+      nav
         each menuLink in allmenuContent.data.menu_links
-          li
-            a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
-              != PrismicDOM.RichText.asText(menuLink.label)
-        li    
-          a(href="/fr-fr") FR/
-          a(href="/en-gb") US
-        a(href="#" onclick='toggleDarkLight()' style = "margin-left:20px") 🌓
+           a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
+            != PrismicDOM.RichText.asText(menuLink.label)   
+        a(href="/fr-fr") FR/
+        a(href="/en-gb") US
+        //a(href="#" onclick='toggleColor()') 🌓  
+        a(href="/changeMode") 🌓  

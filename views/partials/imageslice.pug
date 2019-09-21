@@ -1,11 +1,11 @@
-if (slice.primary.select_image)
-    -var sectionimage = "image-slice-" + slice.primary.select_image
+if (slice.primary.mesh_side)
+    -var sectionimage = "full_width_image-" + slice.primary.mesh_side
 else
-    -var sectionimage = "image-slice-left"
+    -var sectionimage = "full_width_image-right"
 
-div.imagecontent    
+div.imagecontent.clearfix    
     section.content-section(class=sectionimage)
       img.image1(src=slice.primary.background_image.url)
     section.content-section
-      img.image2(src=slice.primary.main_image.url)
-      img.image3(src=slice.primary.light_mode.url)
+      img.image2(src=slice.primary.image_black.url)
+      img.image3(src=slice.primary.image_white.url)

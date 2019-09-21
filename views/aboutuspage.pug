@@ -4,26 +4,17 @@ block prepend body
   include ./partials/header.pug
 
   - var pageContent = aboutusContent.data
-  div.main-content
-      div.homepage-title
-        != PrismicDOM.RichText.asHtml( pageContent.aboutustitle)
-      div.btn-content      
-        div.homepage-subtitle 
-          != PrismicDOM.RichText.asHtml( pageContent.subtitle)
-        .appstorebutton.iphone
-         a(href='#')
-         img.apple-icon(src="images/twitter-icon-image.png")
-         p
-          small follow us on
-          |  twitter
+  
 
 
   div.container
-      for slice in aboutusContent.data.body
+      for slice in aboutusContent.data.page_content
         case slice.slice_type
-          when 'full_width_image'
-            include ./partials/fullwidthimage.pug
-          when 'highlighted_slice'
+          when 'call_to_action'
+            include ./partials/pageactionslice.pug
+          when 'mesh_image'
+            include ./partials/fullwidthimage.pug  
+          when 'image_info_section'
             include ./partials/heighlighslice.pug 
-          when 'notified_slice'
-            include ./partials/notifiedslice.pug 
+          when 'email_signup'
+            include ./partials/notifiedslice.pug

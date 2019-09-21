@@ -1,8 +1,5 @@
 div.heighlight-content
     div.heighlight-image
-        img(src=slice.primary.highlight_image.url)
+        img(src=slice.primary.info_image.url)
     div.heighlight-contenttwo
-        img.arrow-light(src=slice.primary.arrow_image.url)
-        img.arrow-dark(src=slice.primary.arrow_dark_mode.url)
-        != PrismicDOM.RichText.asHtml(slice.primary.heighlighted_title, ctx.linkResolver)
-        != PrismicDOM.RichText.asHtml(slice.primary.heightlighted_desc, ctx.linkResolver)
+        != PrismicDOM.RichText.asHtml(slice.primary.info_text, ctx.linkResolver)

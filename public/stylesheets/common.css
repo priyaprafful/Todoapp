@@ -1,37 +1,35 @@
 
 
 a {
-   font-family: SFProText-Bold;
+  font-family:  'Roboto', sans-serif;;
   font-size: 16px;
   letter-spacing: 0;
   text-align: right;
   text-decoration: none;
-
-  }
-
-h4{
-font-family: SFProText-Heavy;
-font-size: 80px;
-letter-spacing: 0;
 }
-  h5{
-font-family: SFProText-Heavy;
+
+h1{
+    font-family:  'Roboto', sans-serif;;
+    font-size: 81px;
+    letter-spacing: 0;
+    }
+h2{
+font-family:  'Roboto', sans-serif;
 font-size: 56px;
 letter-spacing: 0;
 line-height: 67px;
-  }
-  h6{
-   font-family: SFProText-Medium;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 40px;
-  }
-  p{
-    font-family: SFProText-Medium;
-    font-size: 16px;
+}
+h6{
     letter-spacing: 0;
-    line-height: 30px;
-  }
- 
-
- 
+    line-height: 40px;
+    font-family:  'Roboto', sans-serif;
+    margin-top: 1rem;
+    font-size: 24px; 
+}
+p{
+letter-spacing: 0;
+line-height: 40px;
+font-family:  'Roboto', sans-serif;
+margin-top: 1rem;
+font-size: 16px;
+}

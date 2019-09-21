@@ -1,0 +1,196 @@
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  
+  body.light-mode {
+    background-color: white;
+    color: rgba(0,0,0,0.80);
+  }
+  .dark-mode a, .dark-mode logo{
+    color : white;
+  }
+  .light-mode a, .light-mode logo{ 
+    color:black;
+  }
+  .dark-mode .footer-logo {
+    background-color: #E4E4E4;
+  }
+  .dark-mode .btn-link{
+    background-color: white;
+  }
+  .dark-mode .image2,.dark-mode  .arrow-light,.dark-mode .appleicon-dark{
+    display: none;
+  }
+  .dark-mode .image3,.dark-mode .arrow-dark,.dark-mode .appleicon-white{
+    display: block;
+  }
+  .dark-mode .image1{
+    opacity: 0.2;
+  }
+  .light-mode .image2,.light-mode .arrow-light,.light-mode .appleicon-dark{
+    display: block;
+  }
+  .light-mode .image3,.light-mode .arrow-dark,.light-mode .appleicon-white{
+    display: none;
+  }
+  .dark-mode .btn-link  {
+    color:black;
+  }
+
+  @media (max-width: 767px) {
+  
+    .container,.site-header,.site-footer{
+        padding: 20px 69px;
+      }
+      .site-header img {
+        width: 16px;
+        background-color: #000000;
+        margin-right: 4px;
+      
+      }
+      .site-header .logo {
+        display: inline-block;
+        font-size: 22px;
+      
+      }
+      .site-header nav {
+        float: right;
+      }
+      
+      .site-header nav li {
+        display: inline-block;
+        margin-left: 2em;
+    }
+     
+    h1{
+      font-size: 48px;
+     }
+     h6{
+      font-size: 22px;
+     }
+     .appstorebutton{
+      margin: auto;
+      margin-top: 32px;
+     }
+     .text-content{
+       margin: auto;
+     }
+     .image1{
+      display: none;
+     }
+    .image2,.image3{
+    width: 100%;
+    }
+    .imagecontent,.text-container{
+     padding-top: 26px;
+    }
+    .heighlight-image{
+      margin-right: 47px;
+    }
+    .heighlight-image img{
+      width: 400px;
+    }
+    .heighlight-content{
+      margin-top: 120px;
+    }
+    .heighlight-contenttwo{
+      margin-top: 73px;
+    }
+    
+     h2{
+        font-size: 35px;
+        line-height: 37px;
+        margin-top: 27px;
+     }
+     p{
+      font-size: 16px;
+      line-height: 27px;
+    }
+     #fname{
+    border: 1px solid #E5E5E5;
+    border-radius: 6px;
+    padding:12px 87px;
+    color: #999999;
+    background-color: Transparent;
+    margin-top: 10px;
+  }
+  .btn-link{
+    background: #000000;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    padding:3px;
+    font-family:  'Roboto', sans-serif;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin-top:10px;
+   }
+   #horizontal{
+    margin-top: 110px;
+  }
+ .site-footer{
+   margin-top: 50px;
+   margin-bottom: 40px;
+   }
+ 
+ .copy-img{
+   vertical-align: middle;
+   margin-bottom:2px;
+ }
+ .liketext{
+   font-size: 16px;
+ }
+ .footer-logo{
+   width: 24px;
+   margin-right: 33.4px;
+ }
+ .site-footer nav{
+   float: right;
+ }
+ .liketext{
+   font-size: 12px;
+ } 
+}
+.site-header {
+    padding: 20px 0;
+    margin-bottom: 7em;
+    margin-top: 3em;
+  }
+  .site-header img {
+    width: 16px;
+    background-color: #000000;
+    margin-right: 4px;
+  
+  }
+  .site-header .logo {
+    display: inline-block;
+    font-size: 22px;
+  
+  }
+  .site-header nav {
+    float: right;
+  }
+  
+  .site-header nav li {
+    display: inline-block;
+    margin-left: 2em;
+    
+  
+  }
+.container,header,footer{
+    max-width: 1080px;
+    margin:auto;
+  }
+  .appstorebutton {
+    margin: 80px 0px 0px 218px;
+  }
+  
+  .homepage-subtitle {
+    width: 59%;
+  }
+  .btn-content{
+   display: inline-flex;
+  }
