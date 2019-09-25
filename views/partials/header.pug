@@ -9,8 +9,9 @@ header.header-fixed
       nav
         each menuLink in allmenuContent.data.menu_links
            a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
-            != PrismicDOM.RichText.asText(menuLink.label)   
-        a(href="/fr-fr") FR/
-        a(href="/en-gb") US
-        //a(href="#" onclick='toggleColor()') 🌓  
-        a(href="/changeMode") 🌓  
+            != PrismicDOM.RichText.asText(menuLink.label)
+        each altlang in response.alternate_languages
+            a(href=ctx.linkResolver(altlang))
+               p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
+               
+        a(href="/changeMode") 🌓

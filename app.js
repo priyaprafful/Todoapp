@@ -59,10 +59,10 @@ app.use('/:lang',(req, res, next) => {
 
  res.locals.PrismicDOM = PrismicDOM;
   Prismic.api(PrismicConfig.apiEndpoint,{ accessToken: PrismicConfig.accessToken, req: req }).then((api) => {
-    //console.log(JSON.stringify(api.data.refs,null,10))
+    console.log(JSON.stringify(api.data.refs,null,10))
     req.prismic = { api };
-    req.prismic.api.getSingle('menu',getLanguageJson(lang ) ).then((menuContent)=>{
-      //console.log("menucontent is", JSON.stringify(menuContent,null,10))
+    req.prismic.api.getSingle('menu',getLanguageJson(lang)).then((menuContent)=>{
+      console.log("allmenucontent is", JSON.stringify(menuContent,null,10))
       res.locals.allmenuContent = menuContent;
       next();
     }).catch(function(err) {
@@ -83,9 +83,8 @@ app.get('/', (req, res, next) => {
 // Route for the homepage
 app.get('/:lang/', (req, res, next) => {
   const lang = req.params.lang
-  req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((homepage_response) => {
-    //console.log("Homepage response is", JSON.stringify(homepage_response,null,10) )
-    res.render('homepage', { homepage_response });
+  req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((response) => {
+    res.render('homepage', {response });
     next();
   }).catch(function(err) {
     errorHandler(err, res);
@@ -96,9 +95,8 @@ app.get('/:lang/', (req, res, next) => {
 app.get('/:lang/:uid',(req, res, next) => {
   const uid = req.params.uid;
   const lang = req.params.lang
-  req.prismic.api.getByUID("page",uid,getLanguageJson(lang)).then((aboutusContent) => {
-    //console.log("aboutus Content is ", JSON.stringify(aboutusContent,null,10) )
-    res.render('aboutuspage', { aboutusContent });
+  req.prismic.api.getByUID("page",uid,getLanguageJson(lang)).then((response) => {
+    res.render('aboutuspage', {response});
     next();
   }).catch(function(err) {
     errorHandler(err, res);

@@ -13,14 +13,23 @@ module.exports = {
     // -- Links resolution rules
     // This function will be used to generate links to Prismic.io documents
     // As your project grows, you should update this function according to your routes
-    linkResolver: function (doc) {
+    linkResolver: function (doc, ctx) {
+    
+      if (doc.isBroken) {
+       return '/404'
+      }
+      if (doc.type == 'homepage') {
+         
+        return `/${doc.lang}`
+      }
       if (doc.type == 'page') {
          
          return `/${doc.lang}/${doc.uid}`
-      }else{
-        return `/${doc.lang}`
+      }
+     else{
+        return `/404`
       }
     }
-  };
+}
 
   

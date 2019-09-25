@@ -50,9 +50,30 @@ body.light-mode {
   margin-right: 4px;
 }
 .header-fixed .header-limiter .logo  {
-	font-size:2%;
-	line-height: 40px;
+	font-size:19px;
+	line-height: 50px;
 }
+.wio-link {
+  background-color:cadetblue;
+  position: fixed;
+  z-index: 10000;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 30px;
+  height: 50px;
+  width: 50px !important;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 2px 7px 0 rgba(90, 90, 140, 0.4);
+          box-shadow: 0 2px 7px 0 rgba(90, 90, 140, 0.4); }
+
 
 
 /* The navigation links */
@@ -60,7 +81,6 @@ body.light-mode {
 
 .header-fixed .header-limiter nav {
 	font:16px Arial, Helvetica, sans-serif;
-	line-height: 40px;
 	float: right;
 }
 
@@ -79,7 +99,7 @@ body.light-mode {
   margin:auto;
 }
 .appstorebutton {
-  margin: 80px 0px 0px 218px;
+  margin: 58px 0px 0px 218px;
 }
 .homepage-title{
   width: 45%;
@@ -133,8 +153,12 @@ body.light-mode {
   display: inline-flex;
   margin-top: 220px;
 }
+.text-content img{
+  width: 9%;
+}
 .text-title{
   width: 65%;
+  margin-top: 30px;
 }
 
 .text-subtitle {
@@ -256,10 +280,6 @@ margin-top: 30px;
 }
 
 @media (max-width: 768px) {
- .homepage-subtitle{
-   width: auto;
-
- }
 
  h1{
    font-size: 31px;
@@ -301,8 +321,7 @@ margin-top: 30px;
     padding: 0px;
     height: 66px;
   } 
-  /* .header-fixed .header-limiter nav{
-    float: none;
-    margin-left:20px;
-  } */
+  .liketext{
+    font-size: 14px;
+  }
 }

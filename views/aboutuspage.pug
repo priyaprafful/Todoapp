@@ -1,14 +1,17 @@
 extends ./layout.pug
 
-block prepend body
-  include ./partials/header.pug
+block variables
+  - var activeDoc = page
 
-  - var pageContent = aboutusContent.data
+block body
+  edit-link(data-wio-id=response.id)
+
+  
   
 
 
   div.container
-      for slice in aboutusContent.data.page_content
+      for slice in response.data.page_content
         case slice.slice_type
           when 'call_to_action'
             include ./partials/pageactionslice.pug
