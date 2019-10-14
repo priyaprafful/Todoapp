@@ -330,7 +330,7 @@ margin-top: 30px;
 @media(max-width:500px){
   .site-footer nav{
     float: none;
-    margin-left:50px;
+    margin-left:-36px;
   }
   .header-fixed {
     margin: auto;
@@ -342,5 +342,8 @@ margin-top: 30px;
   }
   .site-footer{
     text-align: center;
+  }
+  .check-icon{
+    width: 20px;
   }
 }
