@@ -345,12 +345,11 @@ margin-top: 30px;
   }
   .check-icon{
     width: 20px;
-    margin-left: 124px;
+  }
+  .header-fixed .header-limiter nav a {
+    font-size: 14px;
   }
   .header-fixed .header-limiter .logo {
-    line-height: 19px;
-}
-.header-fixed .header-limiter nav {
-  margin-right: 48px;
+    font-size: 16px;
 }
 }
