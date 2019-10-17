@@ -9,11 +9,6 @@ const app = require('./config');
 const PrismicConfig = require('./prismic-configuration');
 const PORT = app.get('port');
 
-function render404(res) {
-  res.status(404);
-  res.render('404');
-}
-
 app.listen(PORT, () => {
   process.stdout.write(`Point your browser to: http://localhost:${PORT}\n`);
   
@@ -79,12 +74,12 @@ app.use('/:lang',(req, res, next) => {
     req.prismic = { api };
    // console.log(req.prismic.api)
     req.prismic.api.getSingle('menu',getLanguageJson(lang)).then((menuContent)=>{
-      console.log("Hello")
+
        console.log("allmenucontent is", JSON.stringify(menuContent,null,10))
       res.locals.allmenuContent = menuContent;
       next();
-    }).catch(function(err) {
-      errorHandler(err, res);
+    }).catch((err)=> {
+      res.status(404).render('404');
     });
   });
 })
@@ -104,33 +99,29 @@ app.get('/:lang/', (req, res, next) => {
   console.log("lang")
   const lang = req.params.lang
   req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((response) => {
-    res.render('homepage', {response });
-    next();
-  }).catch(function(err) {
-    errorHandler(err, res);
+    if(response){
+      res.render('homepage', {response});
+      next();
+      }else{
+        res.status(404).render('404');
+      }
+    })
   });
-});
-
+  
+   
 //route for aboutus page
 app.get('/:lang/:uid',(req, res, next) => {
+
   const uid = req.params.uid;
   const lang = req.params.lang
   req.prismic.api.getByUID("page",uid,getLanguageJson(lang)).then((response) => {
+    if(response){
+    console.log("response is",response)
     res.render('aboutuspage', {response});
     next();
-  }).catch(function(err) {
-    errorHandler(err, res);
-  });
+    }else{
+      res.status(404).render('404');
+    }
+  })
 });
-
-function errorHandler(err, res, err_status){  
-  if(err==null){
-    render404(res);
-  }
-  else if (err.status == 404) {
-    res.status(404).send('There was a problem connecting to your API, please check your configuration file for errors.');
-  } else {
-    res.status(500).send('Error 500: ' + err.message);
-  }
-}
 

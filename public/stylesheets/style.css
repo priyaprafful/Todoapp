@@ -172,9 +172,7 @@ color: rgba(255,255,255,0.80);
   width: 81%;
   margin-top: 30px;
 }
-.text-desc{
-  width: 113%;
-}
+
 .text-desc h6{
 font-size: 20px;
 letter-spacing: 0;
@@ -198,6 +196,7 @@ padding:12px 87px;
 color: #999999;
 background-color: Transparent;
 margin-top: 10px;
+text-align: center;
 }
 .btn-link{
   background: #000000;
@@ -229,6 +228,9 @@ margin-top: 10px;
   vertical-align: middle;
   margin-bottom:2px;
   margin-right: 6px;
+  width: 19px;
+  height: 19px;
+
 }
 .site-footer nav {
 	font:16px 'Roboto', sans-serif;
@@ -254,19 +256,50 @@ margin-top: 10px;
   width: 34rem;
  
 }
-.heighlight-contenttwo p{
+.heighlight-contenttwo p{ 
 margin-top: 30px;
 } 
 
 @media(max-width:1060px){
+  .header-fixed {
+    padding: 20px;
+    margin: auto;
+  }
+  .check-icon{
+    width: 16px;
+  }
+  .header-fixed .header-limiter .logo{
+    font-size: 14px;
+  }
+  .header-fixed .header-limiter nav a{
+    font-size: 12px;
+  }
+  .header-fixed .header-limiter nav img{
+    width: 17px;
+  }
   .container{
+    text-align: center; 
     padding: 0 20px;
     margin-bottom: 20px;
   }
-  .header-fixed{
-    margin: auto;
-    height: 66px;
+
+  h1 {
+    font-size: 32px;
   }
+
+  h6 {
+    line-height: 24px;
+    font-size: 16px;
+  }
+.text-container{
+  text-align: left;
+}
+h2{
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 8px;
+}
+
   .site-footer,#horizontal{
     margin: auto;
   }
@@ -289,14 +322,31 @@ margin-top: 30px;
     margin: auto;
     padding-top:20px;
   }
+  .appstorebutton {
+    display: flex;
+    justify-content: center;
+  }
   .image1{
     display:none;
   }
   #fname{
    width: 100%;
   }
+  .footer-logo {
+    width: 10px;
+    margin-left: 11px;
+}
+.copy-img{
+  width: 9px;
+  height: 9px;
+}
+.liketext{
+  font-size: 11px;
+}
 }
 
+
+/*
 @media (max-width: 768px) {
 
  h1{
@@ -353,3 +403,5 @@ margin-top: 30px;
     font-size: 16px;
 }
 }
+
+*/

@@ -12,11 +12,11 @@ header.header-fixed
         each menuLink in allmenuContent.data.menu_links
            a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
             != PrismicDOM.RichText.asText(menuLink.label)
-        each altlang in response.alternate_languages
-            a(href=ctx.linkResolver(altlang))
-               p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
+        if response
+          each altlang in response.alternate_languages
+              a(href=ctx.linkResolver(altlang))
+                p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
                
         a(href="/changeMode")
           img.light-icon(src="../images/moon2.png")
           img.dark-icon(src="../images/moon.png")
-
