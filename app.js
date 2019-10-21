@@ -65,22 +65,27 @@ app.use('/:lang',(req, res, next) => {
   linkResolver: PrismicConfig.linkResolver
 
   };
-  //res.locals.changeMode = changeMode;
   res.locals.mode = colorMode;
 
  res.locals.PrismicDOM = PrismicDOM;
+ //console.log("point 1");
   Prismic.api(PrismicConfig.apiEndpoint,{ accessToken: PrismicConfig.accessToken}).then((api) => {
-    //console.log(JSON.stringify(api.data.refs,null,10))
+    
+   //console.log("api is ::::",JSON.stringify(api,null,10))
     req.prismic = { api };
    // console.log(req.prismic.api)
     req.prismic.api.getSingle('menu',getLanguageJson(lang)).then((menuContent)=>{
 
-       console.log("allmenucontent is", JSON.stringify(menuContent,null,10))
+       //console.log("allmenucontent is ", JSON.stringify(menuContent,null,10))
       res.locals.allmenuContent = menuContent;
+
+      
       next();
-    }).catch((err)=> {
-      res.status(404).render('404');
-    });
+    })
+  }).catch((err)=> {
+    // control in this section comes when prismic configuration is incorrect
+    //console.log("err in case of incorrect url ::::: ", err);
+    res.render('error');
   });
 })
 
@@ -96,16 +101,19 @@ app.get('/', (req, res, next) => {
 
 // Route for the homepage
 app.get('/:lang/', (req, res, next) => {
-  console.log("lang")
   const lang = req.params.lang
-  req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((response) => {
-    if(response){
-      res.render('homepage', {response});
+  req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((prismicResponse) => {
+    if(prismicResponse){
+      //console.log("status is ", res.statusCode);
+      res.render('homepage', {prismicResponse});
       next();
       }else{
         res.status(404).render('404');
       }
-    })
+    }).catch((err)=> {
+      
+      res.status(404).render('404');
+    });
   });
   
    
@@ -114,10 +122,10 @@ app.get('/:lang/:uid',(req, res, next) => {
 
   const uid = req.params.uid;
   const lang = req.params.lang
-  req.prismic.api.getByUID("page",uid,getLanguageJson(lang)).then((response) => {
-    if(response){
-    console.log("response is",response)
-    res.render('aboutuspage', {response});
+  req.prismic.api.getByUID("page",uid,getLanguageJson(lang)).then((prismicResponse) => {
+    if(prismicResponse){
+    console.log("response is",  JSON.stringify(prismicResponse,null,10))
+    res.render('aboutuspage', {prismicResponse});
     next();
     }else{
       res.status(404).render('404');

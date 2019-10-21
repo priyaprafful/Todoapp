@@ -4,14 +4,14 @@ block variables
   - var activeDoc = page
 
 block body
-  edit-link(data-wio-id=response.id)
+  edit-link(data-wio-id=prismicResponse.id)
 
   
   
 
 
   div.container
-      for slice in response.data.page_content
+      for slice in prismicResponse.data.page_content
         case slice.slice_type
           when 'call_to_action'
             include ./partials/pageactionslice.pug

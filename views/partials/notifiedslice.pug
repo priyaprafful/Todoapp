@@ -1,8 +1,7 @@
 div.notified-container
     div.notified-title
-          h2 !{PrismicDOM.RichText.asText(slice.primary.title, ctx.linkResolver)}
-            div.notified-text      
-                 h6 !{PrismicDOM.RichText.asText(slice.primary.text, ctx.linkResolver)}
+          h2.email-title !{PrismicDOM.RichText.asText(slice.primary.title, ctx.linkResolver)}
+          h6.email-text !{PrismicDOM.RichText.asText(slice.primary.text, ctx.linkResolver)}
     div.notified-mail
         p.post-mail !{PrismicDOM.RichText.asText(slice.primary.label, ctx.linkResolver)}
         input#fname(placeholder=slice.primary.placeholder)

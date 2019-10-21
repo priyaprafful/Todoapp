@@ -12,8 +12,8 @@ header.header-fixed
         each menuLink in allmenuContent.data.menu_links
            a(href=PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
             != PrismicDOM.RichText.asText(menuLink.label)
-        if response
-          each altlang in response.alternate_languages
+        if prismicResponse
+          each altlang in prismicResponse.alternate_languages
               a(href=ctx.linkResolver(altlang))
                 p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
                

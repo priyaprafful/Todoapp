@@ -1,7 +1,7 @@
 if (slice.primary.mesh_side)
-    -var sectionimage = "image-slice-" + slice.primary.mesh_side
+    -var sectionimage = "mesh_image-" + slice.primary.mesh_side
 else
-    -var sectionimage = "image-slice-left"
+    -var sectionimage = "mesh_image-right"
 
 div.imagecontent    
     section.content-section(class=sectionimage)
