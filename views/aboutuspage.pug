@@ -1,15 +1,8 @@
 extends ./layout.pug
-
 block variables
   - var activeDoc = page
-
 block body
   edit-link(data-wio-id=prismicResponse.id)
-
-  
-  
-
-
   div.container
       for slice in prismicResponse.data.page_content
         case slice.slice_type

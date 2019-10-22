@@ -3,10 +3,7 @@ header.header-fixed
     a(href='./')
       img.check-icon.light-icon(src="../images/check2.png") 
       img.check-icon.dark-icon(src="../images/check.png") 
-
       logo.logo Todoop
-     
-  
     if allmenuContent != null
       nav
         each menuLink in allmenuContent.data.menu_links
@@ -16,7 +13,6 @@ header.header-fixed
           each altlang in prismicResponse.alternate_languages
               a(href=ctx.linkResolver(altlang))
                 p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
-               
         a(href="/changeMode")
           img.light-icon(src="../images/moon2.png")
           img.dark-icon(src="../images/moon.png")
