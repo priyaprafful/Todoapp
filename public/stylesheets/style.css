@@ -8,7 +8,7 @@ body.light-mode {
     color: rgba(0,0,0,0.80);
 }
 .dark-mode .homepage-subtitle,.dark-mode .text-subtitle,.dark-mode .notified-text,.dark-mode .heighlight-contenttwo p,.dark-mode.liketext,.dark-mode
-.text-desc p {
+.text-desc p, .dark-mode .email-text{
     color: rgba(255,255,255,0.80);
 }
 .dark-mode a, .dark-mode logo{
@@ -101,11 +101,11 @@ body.light-mode {
 }
 .homepage-title {
     width: 45%;
-    margin-bottom: 20px;
 }
 
 .homepage-subtitle {
     width: 59%;
+    margin-top: 20px;
 }
 .btn-content  {
     display: inline-flex;
@@ -142,12 +142,6 @@ body.light-mode {
     z-index: -2;
     left: 0px;
 }
-.image_info_section-right {
-    float: right
-}
-.image_info_section-left { 
-    float: left;
-}
 
 .image1 {
     position: relative;
@@ -161,6 +155,7 @@ body.light-mode {
 
 .image2,.image3,.about-img {
     width: 100%;
+
 }
 
 /* text slice css */
@@ -194,9 +189,13 @@ body.light-mode {
 
  .email-text {
     width: 70%;
+    margin-top: 20px;
   }
 .notified-text {
     margin-top: 20px;
+ }
+ .notified-mail{
+   margin-top: 30px;
  }
 
  #fname {
@@ -262,11 +261,12 @@ body.light-mode {
   margin-top: 220px;
 }
 .heighlight-image {
-  margin-right:100px;
+  margin-right:122px;
 }
+
 .heighlight-image img {
   width: 32rem;
-  height: 47rem;
+  height: 40rem;
 }
 .info-title {
    margin-top: 30px;
@@ -288,15 +288,27 @@ body.light-mode {
 
 @media(max-width:1060px) {
   .header-fixed {
-    padding: 20px;
+    padding: 60px;
     margin: auto;
+  }
+  .main-content{
+    width: 80%;
+    margin: auto;
+    padding-top: 60px;
+  }
+  .imagecontent {
+    padding-bottom: 30px;
+  }
+  .image2,.image3,.about-img {
+    width:100%;
+    margin: auto;
+    padding-top: 25px;
   }
   .check-icon {
     width: 16px;
   }
   .header-fixed .header-limiter .logo {
     font-size: 14px;
-    line-height: 34px;
   }
   .header-fixed .header-limiter nav a {
     font-size: 12px;
@@ -309,9 +321,13 @@ body.light-mode {
     padding: 0 20px;
     margin-bottom: 20px;
   }
+  .text-desc h6{
+      line-height: 30px;
+      font-size: 20px;
+  }
 
-  .arrow-light,.arrow-dark,.text-subtitle,.text-title {
-    margin-top: 8px;
+  .arrow-light,.arrow-dark {
+   width: 4%;
   }
 
   h1 {
@@ -322,32 +338,45 @@ body.light-mode {
     line-height: 24px;
     font-size: 16px;
   }
-.text-container {
+
+  .text-container {
   text-align: left;
-}
-h2{
+  }
+
+  h2{
   font-size: 24px;
   line-height: 36px;
-}
-.site-footer,#horizontal {
+  }
+
+  .site-footer,#horizontal {
     margin: auto;
-}
+  }
+
 .btn-content,.text-container,.notified-container,.heighlight-content {
     display:block;
-}
+  }
+
+.heighlight-contenttwo{
+    margin-top: 30px;;
+  }
 
  p {
-    line-height: 25px;
-    margin-top: 8px;
-}
+    font-size: 16px;
+    line-height: 24px;
+  }
+
 .homepage-title,.homepage-subtitle,.notified-mail {
     width: auto;
-}
+  }
 .heighlight-image img,.text-subtitle {
     width: 100%;
     height: auto;
-}
-.appstorebutton,.heighlight-image, .imagecontent,.text-container,.notified-container,.heighlight-content,.text-desc {
+  }
+.text-desc{
+    margin: auto;
+    padding-top: 30px;
+  }
+.appstorebutton,.heighlight-image, .imagecontent,.text-container,.notified-container,.heighlight-content {
     margin: auto;
     padding-top:20px;
 }
@@ -373,7 +402,30 @@ h2{
   height: 9px;
 }
 .liketext {
-  font-size: 11px;
+  font-size: 10px;
+}
+.notified-container{
+  width: 55%;
 }
 
+}
+
+@media(max-width:500px) {
+  .header-fixed {
+    padding: 20px;
+    margin: auto;
+  }
+ .main-content{
+   width: auto;
+ }
+ .arrow-light, .arrow-dark {
+  width: 9%;
+}
+.text-title {
+  width:auto;
+  margin-top: 20px;
+}
+.notified-container{
+  width: auto;
+}
 }

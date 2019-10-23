@@ -1,8 +1,8 @@
 header.header-fixed
   .header-limiter
     a(href='./')
-      img.check-icon.light-icon(src="../images/check2.png") 
-      img.check-icon.dark-icon(src="../images/check.png") 
+      img.check-icon.light-icon(src=imageRootFolder+"/check2.png") 
+      img.check-icon.dark-icon(src=imageRootFolder+"/check.png") 
       logo.logo Todoop
     if allmenuContent != null
       nav
@@ -14,5 +14,5 @@ header.header-fixed
               a(href=ctx.linkResolver(altlang))
                 p(class="flag-icon flag-icon-"+altlang.lang.slice(-2))
         a(href="/changeMode")
-          img.light-icon(src="../images/moon2.png")
-          img.dark-icon(src="../images/moon.png")
+          img.light-icon(src=imageRootFolder+"/moon2.png")
+          img.dark-icon(src=imageRootFolder+"/moon.png")
