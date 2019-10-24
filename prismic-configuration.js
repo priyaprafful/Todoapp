@@ -22,9 +22,7 @@ module.exports = {
       return `/${doc.lang}/${doc.uid}`
     } 
     else{
-        return '/404'
+      return '/404'
     }
   }
 }
-
-  

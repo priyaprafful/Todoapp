@@ -19,8 +19,6 @@ module.exports = function() {
   app.use(methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(cookieParser());
-
   app.use(errorHandler());
-
   return app;
 }();

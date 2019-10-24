@@ -1,8 +1,8 @@
 div.text-container
-    div.text-content
-       img.arrow-light(src=slice.primary.icon_black.url)
-       img.arrow-dark(src=slice.primary.icon_white.url)
-       h2.text-title !{PrismicDOM.RichText.asText(slice.primary.title)}
-       h6.text-subtitle !{PrismicDOM.RichText.asText(slice.primary.text)}
-    div.text-desc
-       != PrismicDOM.RichText.asHtml(slice.primary.list)
+  div.text-content
+    img.arrow-light(src=slice.primary.icon_black.url)
+    img.arrow-dark(src=slice.primary.icon_white.url)
+    h2.text-title !{PrismicDOM.RichText.asText(slice.primary.title)}
+    h6.text-subtitle !{PrismicDOM.RichText.asText(slice.primary.text)}
+  div.text-desc
+    != PrismicDOM.RichText.asHtml(slice.primary.list)

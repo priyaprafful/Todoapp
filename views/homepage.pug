@@ -1,16 +1,16 @@
 extends ./layout.pug
 block variables
-  - var activeDoc = homepage
+  -var activeDoc = homepage
 block body
   edit-link(data-wio-id=prismicResponse.id)
   div.container
-      for slice in prismicResponse.data.page_content
-        case slice.slice_type
-          when "call_to_action"
-            include ./partials/actionslice.pug
-          when 'full_width_image'
-            include ./partials/imageslice.pug
-          when "icon_info_section"
-            include ./partials/textslice.pug
-          when 'email_signup'
-            include ./partials/notifiedslice.pug
+    for slice in prismicResponse.data.page_content
+      case slice.slice_type
+        when "call_to_action"
+          include ./partials/actionslice.pug
+        when 'full_width_image'
+          include ./partials/imageslice.pug
+        when "icon_info_section"
+          include ./partials/textslice.pug
+        when 'email_signup'
+          include ./partials/notifiedslice.pug

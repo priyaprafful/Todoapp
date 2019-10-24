@@ -10,12 +10,10 @@ head
   link(rel="stylesheet", href="/stylesheets/style.css")
   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css")
   link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
-  // Required for Previews and Experiments
+  // Required for Previews
   script
     = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
   script(src="//static.cdn.prismic.io/prismic.min.js")
-  script(src='https://kit.fontawesome.com/814c5d7779.js')   
-   
 
 body#body(class=mode)
   include ./partials/header.pug

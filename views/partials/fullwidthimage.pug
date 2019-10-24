@@ -1,9 +1,9 @@
 if (slice.primary.mesh_side)
-    -var sectionimage = "mesh_image-" + slice.primary.mesh_side
+  -var sectionimage = "mesh_image-" + slice.primary.mesh_side
 else
-    -var sectionimage = "mesh_image-right"
+  -var sectionimage = "mesh_image-right"
 div.imagecontent    
-    section.content-section(class=sectionimage)
-      img.image1(src=slice.primary.background_image.url)
-    section.content-section
-      img.about-img(src=slice.primary.image.url)
+  section.content-section(class=sectionimage)
+    img.image1(src=slice.primary.background_image.url)
+  section.content-section
+    img.about-img(src=slice.primary.image.url)
