@@ -1,0 +1,10 @@
+div.main-content
+  div.homepage-title
+    != ctx.PrismicDOM.RichText.asHtml(slice.primary.title,ctx.linkresolver)
+  div.btn-content      
+    div.homepage-subtitle 
+      h6 !{ctx.PrismicDOM.RichText.asText(slice.primary.text)}
+    div.app-store-button
+      a(href='#')
+      img.apple-icon-dark(src=slice.primary.black_button.url,alt=slice.primary.black_button.alt)
+      img.apple-icon-white(src=slice.primary.white_button.url,alt=slice.primary.white_button.alt)

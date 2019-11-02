@@ -1,0 +1,20 @@
+header.header-fixed
+  div.header-limiter
+    a(href='./')
+      img.check-icon.light-icon(src=ctx.imageRootFolder+"/check2.png") 
+      img.check-icon.dark-icon(src=ctx.imageRootFolder+"/check.png") 
+      logo.logo Todoop
+
+    if menuContent
+      nav
+        each menuLink in menuContent.data.menu_links
+          a(href=ctx.PrismicDOM.Link.url(menuLink.link, ctx.linkResolver))
+            != ctx.PrismicDOM.RichText.asText(menuLink.label)
+
+        if prismicResponse
+          each altlang in prismicResponse.alternate_languages
+            a(href=ctx.linkResolver(altlang))
+              p(class="flag-icon flag-icon-" + altlang.lang.slice(-2))
+          a(href="/change-mode")
+            img.light-icon(src=ctx.imageRootFolder+"/moon2.png")
+            img.dark-icon(src=ctx.imageRootFolder+"/moon.png")

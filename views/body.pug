@@ -9,13 +9,16 @@ head
   link(rel="stylesheet", href="/stylesheets/common.css")
   link(rel="stylesheet", href="/stylesheets/style.css")
   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css")
-  link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet")
   // Required for Previews
   script
     = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
   script(src="//static.cdn.prismic.io/prismic.min.js")
 
-body#body(class=mode)
-  include ./partials/header.pug
+body#body(class=ctx.colorMode)
+
+  include ./layout/header
+  
   block body
-  include ./partials/footer.pug
+
+  include ./layout/footer

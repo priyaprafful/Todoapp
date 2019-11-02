@@ -1,0 +1,17 @@
+if (slice.primary.image_side)
+  - const sectionText = "image_info_section-" + slice.primary.image_side
+else
+  - const sectionimage = "image_info_section-right"
+
+div.heighlight-content
+  div.heighlight-image
+    section.content-section(class=sectionText)
+      img(src=slice.primary.info_image.url,alt=slice.primary.info_image.alt)
+
+  div.heighlight-contenttwo
+    img.arrow-light(src=slice.primary.icon_black.url,alt=slice.primary.icon_black.alt)
+    img.arrow-dark(src=slice.primary.icon_white.url,alt=slice.primary.icon_white.alt)
+    div.info-title
+      != ctx.PrismicDOM.RichText.asHtml(slice.primary.info_title, ctx.linkResolver)
+    div.info-text
+      != ctx.PrismicDOM.RichText.asHtml(slice.primary.info_text, ctx.linkResolver)

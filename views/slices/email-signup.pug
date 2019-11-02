@@ -1,0 +1,13 @@
+div.notified-container
+  div.notified-title
+    != ctx.PrismicDOM.RichText.asHtml(slice.primary.title, ctx.linkResolver)
+    div.notified-subtitle  
+      h6 !{ctx.PrismicDOM.RichText.asText(slice.primary.text)}
+
+  div.notified-mail
+    div.post-mail 
+      != ctx.PrismicDOM.RichText.asHtml(slice.primary.label, ctx.linkResolver)
+      input.fname(placeholder=slice.primary.placeholder)
+      div.notified-btn
+        div.btn-link
+          != ctx.PrismicDOM.RichText.asHtml(slice.primary.button_text,ctx.linkResolver)

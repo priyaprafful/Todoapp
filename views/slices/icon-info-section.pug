@@ -1,0 +1,12 @@
+div.text-container
+
+  div.text-content
+    img.arrow-light(src=slice.primary.icon_black.url,alt=slice.primary.icon_black.alt)
+    img.arrow-dark(src=slice.primary.icon_white.url,alt=slice.primary.icon_white.alt)
+    div.text-title 
+      != ctx.PrismicDOM.RichText.asHtml(slice.primary.title,ctx.linkresolver)
+    div.text-subtitle  
+      h6 !{ctx.PrismicDOM.RichText.asText(slice.primary.text)}
+
+  div.text-desc
+    != ctx.PrismicDOM.RichText.asHtml(slice.primary.list,ctx.linkresolver)
