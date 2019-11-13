@@ -1,4 +1,4 @@
-if (slice.primary.mesh_side)
+if slice.primary.mesh_side
   - var sectionimage = "full_width_image-" + slice.primary.mesh_side
 else
   - var sectionimage = "full_width_image-right"
@@ -9,10 +9,10 @@ else
   - var whiteimage = slice.primary.image_black
 
 
-div.imagecontent.clearfix    
-  section.content-section(class=sectionimage)
+div.image-container 
+  section.image-section-one(class=sectionimage)
     img.back-img(src=slice.primary.background_image.url,alt=slice.primary.background_image.alt)
 
-  section.content-section
+  section.image-section-two
     img.img-black(src=slice.primary.image_black.url,alt=slice.primary.image_black.alt)
     img.img-white(src=whiteimage.url,alt=whiteimage.alt)

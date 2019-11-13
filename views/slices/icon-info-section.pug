@@ -1,12 +1,12 @@
-div.text-container
+div.info-container
 
-  div.text-content
-    img.arrow-light(src=slice.primary.icon_black.url,alt=slice.primary.icon_black.alt)
-    img.arrow-dark(src=slice.primary.icon_white.url,alt=slice.primary.icon_white.alt)
-    div.text-title 
-      != ctx.PrismicDOM.RichText.asHtml(slice.primary.title,ctx.linkresolver)
-    div.text-subtitle  
-      h6 !{ctx.PrismicDOM.RichText.asText(slice.primary.text)}
+  div.info-content
+    img.arrow-black(src=slice.primary.icon_black.url,alt=slice.primary.icon_black.alt)
+    img.arrow-white(src=slice.primary.icon_white.url,alt=slice.primary.icon_white.alt)
+    div.info-title
+      != ctx.prismicDom.RichText.asHtml(slice.primary.info_title,ctx.linkresolver)
+    div.info-text 
+      h6 !{ ctx.prismicDom.RichText.asText(slice.primary.info_text) }
 
-  div.text-desc
-    != ctx.PrismicDOM.RichText.asHtml(slice.primary.list,ctx.linkresolver)
+  div.info-desc
+    != ctx.prismicDom.RichText.asHtml(slice.primary.info_desc,ctx.linkresolver)

@@ -1,8 +1,11 @@
 extends ../body
 
 block body
-  div.container
-    p.error-handle Something went wrong.
-      ul
-        li Please check your Prismic endpoints configurations.
-        li Please check all the custom-types are created on Prismic and correctlt named in your repository.
+
+  div.prismic-error-container
+    div.prismic-error-code
+      h4 Something is wrong in Prismic and prismic-configuration file.
+    nav.prismic-error-message  
+      ul.prismic-error-content
+        li Please check your Prismic endpoints configurations. It can be wrong.
+        li Please check all the custom-types are created on Prismic and correctly named in your repository.

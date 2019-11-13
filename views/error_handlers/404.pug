@@ -1,6 +1,13 @@
 extends ../body
 
 block body
-  div.row
-    a.back-page(href="/") Back to homepage
-      p.error-handle Sorry! The page you are looking is not located on this site.
+
+  div.error-container
+    div.error-code
+      h1 404
+    div.error-message
+      h2.error-content SORRY!
+      h6.error-content The Page You Are Looking For Was Not Found
+      a.btn(href='/')
+        button.btn
+          | Go to Homepage

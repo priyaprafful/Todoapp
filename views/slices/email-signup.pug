@@ -1,13 +1,15 @@
-div.notified-container
-  div.notified-title
-    != ctx.PrismicDOM.RichText.asHtml(slice.primary.title, ctx.linkResolver)
-    div.notified-subtitle  
-      h6 !{ctx.PrismicDOM.RichText.asText(slice.primary.text)}
+div.email-container
+  div.email-content
+    div.email-title
+      != ctx.prismicDom.RichText.asHtml(slice.primary.email_title, ctx.linkResolver)
+    div.email-text  
+      h6 !{ ctx.prismicDom.RichText.asText(slice.primary.email_text) }
 
-  div.notified-mail
-    div.post-mail 
-      != ctx.PrismicDOM.RichText.asHtml(slice.primary.label, ctx.linkResolver)
-      input.fname(placeholder=slice.primary.placeholder)
-      div.notified-btn
-        div.btn-link
-          != ctx.PrismicDOM.RichText.asHtml(slice.primary.button_text,ctx.linkResolver)
+  div.signup-content
+    div.signup-info
+      != ctx.prismicDom.RichText.asHtml(slice.primary.label, ctx.linkResolver)
+      div.signup-box
+        input.email-add(placeholder=slice.primary.placeholder)
+        div.btn-content
+          div.btn-text
+            != ctx.prismicDom.RichText.asHtml(slice.primary.button_text,ctx.linkResolver)
