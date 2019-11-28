@@ -2,168 +2,98 @@
 // Module dependencies.
 const prismic = require("prismic-javascript");
 const prismicDom = require("prismic-dom");
-const app = require("./config");
-const prismicConfig = require("./prismic-configuration");
+const app = require("./config/config");
+const prismicConfig = require("./config/prismic-config");
+const siteConfig =  require("./config/site-config")
 const port = app.get("port");
+const asyncHandler = require ("./utils/async-handler");
+const colorModeHandler = require ("./utils/color-mode-handler");
 
-// Lanaguage and image folder root pathconstant.
-const defaultLanguage = "en-gb";
-const imageRootFolder = "/images";
 
-// Cookie Constants. 
-const lightColorMode = "light-mode";
-const darkColorMode = "dark-mode";
-const colorModeCookieName = "mode";
-const colorModeCookieAge = 900000;
-const colorModeCookieHTTPFlag = true;
-
-// Objective of this function is to get the json from language passed. 
-function getLanguageJson(language) {
-  return {
-    lang: language
-  };
-}
-// Setting color mode cookie.
-function setColorModeCookie(res, cookieValue) {
-  res.cookie(
-    colorModeCookieName,
-    cookieValue, {
-      maxAge: colorModeCookieAge,
-      httpOnly: colorModeCookieHTTPFlag
-    }
-  );
-}
-
-// Objective of this function is to listen to application port.
+// Listen to application port.
 app.listen(port, () => {
   process.stdout.write(`Point your browser to: http://localhost:${port}\n`);
 });
 
 // Root path router.
 app.get("/", (req, res) => {
-  res.redirect(defaultLanguage);
+  res.redirect(siteConfig.defaultLanguage);
 });
 
-// Preview router for preview mode used from Prismic.
-app.get("/preview", (req, res) => {
-  prismic.api(
-    prismicConfig.apiEndpoint, {
-      accessToken: prismicConfig.accessToken,
-      req: req
-    }
-  ).then((api) => {
-    req.prismic = {
-      api
-    };
-    const token = req.query.token;
-    if (token) {
-      req.prismic.api.previewSession(
-        token,
-        prismicConfig.linkResolver,
-        '/'
-      ).then((url) => {
-        res.redirect(302, url);
-      }).catch((err) => {
-        res.status(500).send(`Error 500 in preview: ${err.message}`);
-      });
-    } else {
-      res.send(400, "Missing token from querystring");
-    }
-  });
-});
+// Middleware to inject prismic context
+app.get("*", asyncHandler (async (req, res,next) => {
+  const api = await prismic.api (
+    prismicConfig.apiEndpoint, { accessToken: prismicConfig.accessToken, req: req }
+  )
+  if (api) { 
+    req.prismic = { api };
+  } else {
+    res.status(404).render ("./error_handlers/404");
+  }
+  next();
+}));
+
+// Preconfigured prismic preview
+app.get('/preview', asyncHandler ( async (req, res) => {
+  const token = req.query.token;
+  if (token) {
+    const url = await req.prismic.api.previewSession(token, prismicConfig.linkResolver, '/');
+    res.redirect(302, url);
+  } else {
+    res.send(400, 'Missing token from querystring');
+  }
+}));
 
 // Change mode router for setting or changing cookie mode.
-app.use("/change-mode", (req, res) => {
-  let colorMode = req.cookies.mode;
-  //change the color mode cookie, default value is light mode.
-  if (colorMode == lightColorMode) {
-    setColorModeCookie(res, darkColorMode);
-  } else {
-    setColorModeCookie(res, lightColorMode);
-  }
-  if (req.headers.referer) {
-    res.redirect(req.headers.referer);
-  } else {
-    res.redirect('/');
-  }
+app.get("/change-mode",  (req, res) => {
+  colorModeHandler.setColor (req, res);
 });
 
-// Middleware to inject prismic context. 
-app.use("/:lang", (req, res, next) => {
-  var colorMode = req.cookies.mode;
-  // Set the color mode cookie if not defined, default value is light color mode
-  if (!colorMode) {
-    setColorModeCookie(res, lightColorMode);
-    colorMode = lightColorMode;
-  }
-  
-  // Language from parameter
+//Router for menu.
+app.use("/:lang", asyncHandler (async (req, res, next) => {
   const lang = req.params.lang;
-
+  let colorMode = colorModeHandler.getOrSetColor(req, res);
+  
  // Start -- set locals param in res, to be used in multiple templates
   res.locals.ctx = {
-    endpoint: prismicConfig.apiEndpoint,
+    apiEndpoint: prismicConfig.apiEndpoint,
     linkResolver: prismicConfig.linkResolver,
     colorMode: colorMode,
     prismicDom: prismicDom,
-    imageRootFolder: imageRootFolder,
   };
  // End -- set locals param in res, to be used in multiple templates
+ 
+  const menuContent = await req.prismic.api.getSingle ("menu", { lang });
+  res.locals.menuContent = menuContent;
+  next();
+}));
 
-  prismic.api(
-    prismicConfig.apiEndpoint
-    // { 
-    //   accessToken: prismicConfig.accessToken
-    // }
-  ).then((api) => {
-    req.prismic = {
-      api
-    };
-    req.prismic.api.getSingle("menu", getLanguageJson(lang)).then((menuContent) => {
-      res.locals.menuContent = menuContent;
-      next();
-    }).catch(() => {
-      res.status(404).render("./error_handlers/404");
-    });
-  }).catch(() => {
-    res.render("./error_handlers/prismic-error");
-  });
-});
-
-// Router for Homepage.
-app.get("/:lang/", (req, res) => {
+// Router for homepage.
+app.get("/:lang/", asyncHandler (async (req, res) => {
   const lang = req.params.lang;
-  req.prismic.api.getSingle("homepage", getLanguageJson(lang)).then((prismicResponse) => {
-    if (prismicResponse) {
-      res.render("page", {
-        prismicResponse
-      });
-    } else {
-      res.status(404).render("./error_handlers/404");
-    }
-  }).catch(() => {
+  const prismicResponse = await req.prismic.api.getSingle("homepage", { lang });
+  if (prismicResponse) {
+    res.render("page", { prismicResponse });
+  } else {
     res.status(404).render("./error_handlers/404");
-  });
-});
-
+  }
+}));
+  
 // Router for page.
-app.get("/:lang/:uid", (req, res) => {
-  const uid = req.params.uid;
+app.get("/:lang/:uid", asyncHandler (async (req, res) => {
   const lang = req.params.lang;
-  req.prismic.api.getByUID("page", uid, getLanguageJson(lang)).then((prismicResponse) => {
-    if (prismicResponse) {
-      res.render("page", {
-        prismicResponse
-      });
-    } else {
-      res.status(404).render("./error_handlers/404");
-    }
-  }).catch(() => {
+  const uid = req.params.uid;
+  const prismicResponse = await req.prismic.api.getByUID("page", uid, { lang })
+  if (prismicResponse) { 
+    res.render("page", { prismicResponse });
+  } else {
     res.status(404).render("./error_handlers/404");
-  });
-});
+  }
+}));
 
 // Router handling for un-reachable pages.
-app.get("/:lang/:uid/*", (req, res) => {
+app.get("/:lang/:uid/*",  (req, res) => {
   res.status(404).render("./error_handlers/404");
 });
+
+module.exports = app;
