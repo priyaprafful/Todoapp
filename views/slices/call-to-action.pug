@@ -1,12 +1,11 @@
 div.action-container
   div.action-content
     div.action-title
-      != ctx.prismicDom.RichText.asHtml(slice.primary.action_title,ctx.linkresolver)
+      != ctx.prismicDom.RichText.asHtml(slice.primary.action_title, ctx.linkresolver)
     div.action-text
-      h6 !{ ctx.prismicDom.RichText.asText(slice.primary.action_text) }
+      != ctx.prismicDom.RichText.asHtml(slice.primary.action_text, ctx.linkresolver)
       
   div.btn-content      
-    div.app-store-button
-      a(href='#')
-      img.apple-icon-black(src=slice.primary.black_button.url,alt=slice.primary.black_button.alt)
-      img.apple-icon-white(src=slice.primary.white_button.url,alt=slice.primary.white_button.alt)
+    a(href='#')
+      img.btn-black(src=slice.primary.black_button.url, alt=slice.primary.black_button.alt)
+      img.btn-white(src=slice.primary.white_button.url, alt=slice.primary.white_button.alt) 
