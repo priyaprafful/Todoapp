@@ -12,39 +12,46 @@ body.light-mode {
   background-color: #FFFFFF;
   color: rgba(0,0,0,0.80);
 }
-.dark-mode .action-text,.dark-mode .text-subtitle,
-.dark-mode .heighlight-text p,.dark-mode.liketext,
-.dark-mode .info-desc p, .dark-mode .email-text,
+.dark-mode .action-text, 
+.dark-mode .text-subtitle,
+.dark-mode .highlight-text p, 
+.dark-mode.liketext,
+.dark-mode .info-desc p, 
+.dark-mode .email-text,
 .dark-mode .info-text {
   color: rgba(255,255,255,0.80);
 }
-.dark-mode a, .dark-mode .logo-text {
+.dark-mode a, 
+.dark-mode .logo-text {
   color: #FFFFFF;
 }
-.light-mode a, .light-mode .logo-text {
+.light-mode a, 
+.light-mode .logo-text {
   color: #000000;
 }
 .dark-mode .btn-text {
   background-color: #FFFFFF;
 }
-.dark-mode .img-black,.dark-mode .arrow-black,
-.dark-mode .apple-icon-black,
+.dark-mode .img-black,
+.dark-mode .arrow-black,
+.dark-mode .btn-black,
 .dark-mode .dark-icon {
   display: none;
 }
 .dark-mode .img-white,
-.dark-mode .apple-icon-white {
+.dark-mode .btn-white {
   display: block;
 }
 .dark-mode .back-img {
   opacity: 0.2;
 }
 .light-mode .img-black,
-.light-mode .apple-icon-black {
+.light-mode .btn-black {
   display: block;
 }
-.light-mode .img-white,.light-mode .arrow-white,
-.light-mode .apple-icon-white,
+.light-mode .img-white,
+.light-mode .arrow-white,
+.light-mode .btn-white,
 .light-mode .light-icon {
   display: none;
 }
@@ -53,40 +60,34 @@ body.light-mode {
 }
 
 /* CSS for each container */
-.container,header,footer {
+.container,
+header,
+footer {
   max-width: 1080px;
   margin: auto;
 }
-.action-container,.info-container,
-.email-container,.heighlight-container {
+.action-container,
+.info-container,
+.email-container,
+.highlight-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
 
-/* Edit button css */
-.wio-link {
-  background-color: cadetblue;
-  position: fixed;
-  z-index: 10000;
-  padding: 6px 10px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  bottom: 30px;
-  right: 30px;
-  height: 50px;
-  width: 50px !important;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-shadow: 0 2px 7px 0 rgba(90, 90, 140, 0.4);
-  box-shadow: 0 2px 7px 0 rgba(90, 90, 140, 0.4);
+/* Common Css */
+h2 {
+  line-height: 67px;
+  font-size: 56px;
+  font-weight: 600;
+} 
+h4 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  line-height: 27px;
 }
+
 
 /* Header CSS */
 .header-container {
@@ -94,8 +95,13 @@ body.light-mode {
   margin: 0 auto;
   margin-bottom: 100px;
 }
+a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
 .header-container a {
-  padding-top: 16px;
+  padding-top: 6px;
   display: flex;
 }
 .check-icon {
@@ -109,7 +115,8 @@ body.light-mode {
   font-weight: 500;
   line-height: 19px;
 }
-.moon-light-icon, .moon.dark-icon {
+.moon-light-icon, 
+.moon.dark-icon {
   width: 18px;
   vertical-align: text-bottom;
 }
@@ -138,11 +145,16 @@ body.light-mode {
   letter-spacing: 0;
   font-weight: 600;
 }
-.action-text {
+.action-text , 
+.email-text, 
+.info-text {
   margin-top: 20px;
   max-width: 723px;
+  line-height: 40px;
+  font-size: 23px;
+  font-weight: 500;
 }
-.app-store-button {
+.btn-content   {
   margin: 298px 0px 0px 235px;
 }
 
@@ -174,11 +186,15 @@ body.light-mode {
   height: 608px;
   margin-right: -110px;
 }
-.img-black,.img-white {
+.img-black,
+.img-white {
   width: 100%;
 }
 
 /* icon-info-action slice css */
+.info-container {
+  align-items: unset;
+}
 .info-title {
   max-width: 463px;
   margin: 30px 0px 20px 0px;
@@ -187,13 +203,17 @@ body.light-mode {
   max-width: 1075px;
 }
 .info-desc {
-  margin-left: 109px;
+  margin-left: 135px;
 }
 .info-desc h6 {
   font-size: 20px;
-  letter-spacing: 0;
   line-height: 36px;
-  margin-top: 30px;
+}
+.info-desc p {
+  line-height: 30px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /* Email-signup CSS */
@@ -234,21 +254,27 @@ body.light-mode {
 }
 
 /* page CSS --- Highlight-section CSS */
-.heighlight-container {
+.highlight-container {
   margin-bottom: 220px;
 }
-.heighlight-title {
+.highlight-title {
   margin-top: 20px;
 }
-.heighlight-image {
+.highlight-image {
   margin-right: 122px;
 }
-.heighlight-image img {
+.highlight-image img {
   width: 516px;
 }
-.heighlight-text > :first-child {
+.highlight-text > :first-child {
   font-size: 20px;
   line-height: 36px;
+}
+.highlight-text p {
+  line-height: 30px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /* footer css */
@@ -271,7 +297,7 @@ body.light-mode {
 }
 .footer-nav img {
 	display: inline-block;
-  padding: 5px 15px;
+  padding: 5px 21px;
   width: 19px;
 }
 .horizontal-line {
@@ -313,8 +339,36 @@ body.light-mode {
 }
 
 /* Media queries */
-@media(max-width:1060px) {
-  .header-container, .action-title {
+@media(max-width:1200px) {
+  .header-container, 
+  .container {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .btn-content   {
+    margin: 310px 0px 0px 60px;
+  }
+  .highlight-title h2 {
+    font-size: 54px;
+  }
+  .signup-content {
+    margin-left: 40px;
+  }
+  .highlight-image {
+    margin-right: 60px;
+  }
+  .highlight-text p {
+    font-size: 14px;
+  }
+  .info-desc {
+    margin-left: 60px;
+  }
+}
+
+@media(max-width:1100px) {
+  .header-container, 
+  .action-title, 
+  .info-desc {
     margin: auto;
   }
   .logo-text {
@@ -322,11 +376,10 @@ body.light-mode {
   }
   .container {
     text-align: center;
-    padding: 0 20px;
     margin-top: 50px;
   }
   h1 {
-    font-size: 35px;
+    font-size: 39px;
   }
   h2 {
     font-size: 32px;
@@ -339,27 +392,31 @@ body.light-mode {
   .image-container  {
     padding-bottom: 30px;
   }
-  .img-black,.img-white {
+  .img-black,
+  .img-white {
     padding-top: 25px;
   }
   .info-desc h6 {
     line-height: 30px;
     font-size: 20px;
-  }
-  .arrow-black,.arrow-white {
-    width: 9%;
+    margin-top: 25px;
   }
   .info-container {
     text-align: left;
   }
-  .action-container,.info-container,
-  .email-container,.heighlight-container {
+  .action-container,
+  .info-container,
+  .email-container,
+  .highlight-container {
     flex-flow: column;
   }
-  .app-store-button,.heighlight-image, 
-  .image-container ,.info-container,
-  .email-container,.heighlight-container,
-  .info-desc,.signup-content {
+  .btn-content,
+  .highlight-image, 
+  .image-container ,
+  .info-container,
+  .email-container,
+  .highlight-container,
+  .signup-content {
     margin: 0;
     padding-top:20px;
   }
@@ -369,18 +426,18 @@ body.light-mode {
   .error-handle {
     font-size: 25px;
   }
-  .heighlight-image {
+  .highlight-image {
     order: 2;
     margin: 0;
   }
- .heighlight-image img{
+  .highlight-image img {
     width: 100%;
   }
- .heighlight-content {
+  .highlight-content {
     margin-bottom: 30px;
     text-align: left; 
   }
- .heighlight-container {
+ .highlight-container {
    align-items: unset;
    padding-bottom: 30px;
   }
@@ -401,18 +458,24 @@ body.light-mode {
   }
 }
 
-@media(max-width:500px) {
+@media(max-width:600px) {
   .main-nav-list li a {
-    font-size: 10px;
+    font-size: 12px;
   }
   .logo-text {
-    font-size: 14px;
+    font-size: 15px;
   }
-  .main-header .header-container , .main-footer .footer-container {
+  .main-header .header-container , 
+  .main-footer .footer-container {
 		justify-content: space-evenly;
   }
   .moon-light-icon,.moon.dark-icon {
     width: 14px;
+  }
+  .container, 
+  .header-container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .email-add {
     padding: 10px 48px;
@@ -425,3 +488,8 @@ body.light-mode {
     font-size: 18px;
   }
 }
+@media(max-width:350px) {
+  .main-nav-list li a {
+    font-size: 10px;
+  }
+} 
