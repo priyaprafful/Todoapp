@@ -1,0 +1,14 @@
+div.highlight-container
+  div.highlight-image
+    picture
+      source(srcset=slice.primary.highlight_image.Mobileview.url, alt=slice.primary.highlight_image.Mobileview.alt media='(max-width: 500px)')
+      source(srcset=slice.primary.highlight_image.Tabletview.url, alt=slice.primary.highlight_image.Tabletview.alt media='(max-width: 1100px)')
+      img(src=slice.primary.highlight_image.url, alt=slice.primary.highlight_image.alt)
+
+  div.highlight-content
+    img.arrow-black(src=slice.primary.icon_black.url, alt=slice.primary.icon_black.alt)
+    img.arrow-white(src=slice.primary.icon_white.url, alt=slice.primary.icon_white.alt)
+    div.highlight-title
+      != ctx.prismicDom.RichText.asHtml(slice.primary.highlight_title, ctx.linkResolver)
+    div.highlight-text
+      != ctx.prismicDom.RichText.asHtml(slice.primary.highlight_text, ctx.linkResolver)
