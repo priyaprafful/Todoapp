@@ -1,33 +1,34 @@
-{ 
-  "Main":{ 
-    "title":{ 
-      "type":"StructuredText",
-      "config":{ 
-        "placeholder":"Menu title...",
-        "single":"heading1"
+{
+  "Main": {
+    "menu_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "menu_title",
+        "placeholder": "Menu title..."
       }
     },
-    "menu_links":{ 
-      "type":"Group",
-      "config":{ 
-        "fields":{ 
-          "label":{ 
-            "type":"StructuredText",
-            "config":{ 
-              "single":"paragraph",
-              "label":"Link Label",
-              "placeholder":"Link Label..."
+    "menu_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "label",
+              "placeholder": "Link Label..."
             }
           },
-          "link":{ 
-            "type":"Link",
-            "config":{ 
-              "label":"Link",
-              "placeholder":"Select a Link..."
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "link",
+              "placeholder": "Select a Link..."
             }
           }
         },
-        "label":"Menu Links"
+        "label": "menu_links"
       }
     }
   }
