@@ -1,8 +1,7 @@
 extends ./body
 
 block body
-  edit-link(data-wio-id=prismicResponse.id)
-
+ 
   div.container
     for slice in prismicResponse.data.page_content
       case slice.slice_type
@@ -12,7 +11,7 @@ block body
           include ./slices/full-width-image
         when "icon_info_section"
           include ./slices/icon-info-section
-        when "heighlight_section"
-          include ./slices/heighlight-section
+        when "highlight_section"
+          include ./slices/highlight-section
         when "email_signup"
           include ./slices/email-signup
