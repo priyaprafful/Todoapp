@@ -1,8 +1,8 @@
 header.main-header
   div.header-container
     a(href='./')
-      img.check-icon.light-icon(src=ctx.imageRootFolder + "/check2.png") 
-      img.check-icon.dark-icon(src=ctx.imageRootFolder + "/check.png") 
+      img.check-icon.light-icon(src="/images/check2.png", alt="Light-check-icon") 
+      img.check-icon.dark-icon(src="/images/check1.png", alt="Black-check-icon") 
       h3.logo-text Todoop
 
     if menuContent
@@ -18,5 +18,5 @@ header.main-header
                 a(href=ctx.linkResolver(altlang))
                   p(class="flag-icon flag-icon-" + altlang.lang.slice(-2))
               a(href="/change-mode")
-                img.moon-light-icon.light-icon(src=ctx.imageRootFolder + "/moon2.png")
-                img.moon.dark-icon.dark-icon(src=ctx.imageRootFolder + "/moon.png")
+                img.moon-light-icon.light-icon(src="/images/moon2.png", alt="Light-moon-icon")
+                img.moon.dark-icon.dark-icon(src= "/images/moon1.png", alt="Black-check-icon")
