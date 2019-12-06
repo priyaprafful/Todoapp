@@ -1,14 +1,10 @@
-div.email-container
-  div.email-content
-    div.email-title
-      != ctx.prismicDom.RichText.asHtml(slice.primary.email_title, ctx.linkResolver)
-    div.email-text 
-      != ctx.prismicDom.RichText.asHtml(slice.primary.email_text, ctx.linkResolver) 
+section
+  div.email-signup.off-white-text
+    != ctx.prismicDom.RichText.asHtml(slice.primary.email_title)
+    != ctx.prismicDom.RichText.asHtml(slice.primary.email_text, ctx.linkResolver) 
 
-  div.signup-content
-    div.signup-info
-      != ctx.prismicDom.RichText.asHtml(slice.primary.label, ctx.linkResolver)
-      div.signup-box
-        input.email-add(placeholder=slice.primary.placeholder)
-      div.btn-text
-        != ctx.prismicDom.RichText.asHtml(slice.primary.button_text, ctx.linkResolver)
+  div.signup-content.off-white-text
+    != ctx.prismicDom.RichText.asHtml(slice.primary.label, ctx.linkResolver)
+    input(placeholder=slice.primary.placeholder)
+    div.newsletters-btn
+      != ctx.prismicDom.RichText.asHtml(slice.primary.button_text, ctx.linkResolver)

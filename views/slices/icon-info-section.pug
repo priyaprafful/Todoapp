@@ -1,12 +1,10 @@
-div.info-container
-
-  div.info-content
-    img.arrow-black(src=slice.primary.icon_black.url, alt=slice.primary.icon_black.alt)
-    img.arrow-white(src=slice.primary.icon_white.url, alt=slice.primary.icon_white.alt)
-    div.info-title
-      != ctx.prismicDom.RichText.asHtml(slice.primary.info_title, ctx.linkresolver)
-    div.info-text 
-      != ctx.prismicDom.RichText.asHtml(slice.primary.info_text, ctx.linkresolver)
-
+section.icon-info-section.off-white-text
+  div
+    img.dark-asset(src=slice.primary.icon_black.url, alt=slice.primary.icon_black.alt)
+    img.white-asset(src=slice.primary.icon_white.url, alt=slice.primary.icon_white.alt)
+    != ctx.prismicDom.RichText.asHtml(slice.primary.info_title)
+    != ctx.prismicDom.RichText.asHtml(slice.primary.info_text, ctx.linkresolver)
+      
   div.info-desc
     != ctx.prismicDom.RichText.asHtml(slice.primary.info_desc, ctx.linkresolver)
+    
