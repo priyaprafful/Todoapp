@@ -1,13 +1,14 @@
 "use strict";
-// Module dependencies.
+
+// Module dependencies
 const prismic = require("prismic-javascript");
 const prismicDom = require("prismic-dom");
-const app = require("./config/config");
+const app = require("./config/app-config");
 const prismicConfig = require("./config/prismic-config");
 const siteConfig =  require("./config/site-config")
 const port = app.get("port");
 const asyncHandler = require ("./utils/async-handler");
-const colorModeHandler = require ("./utils/color-mode-handler");
+const { getColorMode, toggleColorMode } = require ("./utils/color-mode");
 
 
 // Listen to application port.
@@ -15,16 +16,18 @@ app.listen(port, () => {
   process.stdout.write(`Point your browser to: http://localhost:${port}\n`);
 });
 
-// Root path router.
+// Root path redirects to default language
 app.get("/", (req, res) => {
   res.redirect(siteConfig.defaultLanguage);
 });
 
-// Middleware to inject prismic context
-app.get("*", asyncHandler (async (req, res,next) => {
-  const api = await prismic.api (
-    prismicConfig.apiEndpoint, { accessToken: prismicConfig.accessToken, req: req }
-  )
+// Middleware to fetch Prismic api object
+app.get("*", asyncHandler(async (req, res,next) => {
+  const api = await prismic.api(
+    prismicConfig.apiEndpoint,
+    { req, accessToken: prismicConfig.accessToken }
+  );
+
   if (api) { 
     req.prismic = { api };
   } else {
@@ -33,66 +36,68 @@ app.get("*", asyncHandler (async (req, res,next) => {
   next();
 }));
 
-// Preconfigured prismic preview
-app.get('/preview', asyncHandler ( async (req, res) => {
+// Prismic preview route
+app.get('/preview', asyncHandler(async (req, res) => {
   const token = req.query.token;
   if (token) {
     const url = await req.prismic.api.previewSession(token, prismicConfig.linkResolver, '/');
     res.redirect(302, url);
   } else {
-    res.send(400, 'Missing token from querystring');
+    throw new Error('Missing token from preview querystring');
   }
 }));
 
-// Change mode router for setting or changing cookie mode.
+// Route to toggle change in color mode
 app.get("/change-mode",  (req, res) => {
-  colorModeHandler.setColor (req, res);
+  toggleColorMode(req, res);
 });
 
-//Router for menu.
-app.use("/:lang", asyncHandler (async (req, res, next) => {
+// Middleware to set local variables & fetch menu content from Prismic
+app.get(["/:lang", "/:lang/*"], asyncHandler(async (req, res, next) => {
   const lang = req.params.lang;
-  let colorMode = colorModeHandler.getOrSetColor(req, res);
+  const colorMode = getColorMode(req, res);
   
- // Start -- set locals param in res, to be used in multiple templates
+  // Set locals variables in res to be used in view templates
   res.locals.ctx = {
     apiEndpoint: prismicConfig.apiEndpoint,
     linkResolver: prismicConfig.linkResolver,
-    colorMode: colorMode,
-    prismicDom: prismicDom,
+    colorMode,
+    prismicDom,
   };
- // End -- set locals param in res, to be used in multiple templates
  
-  const menuContent = await req.prismic.api.getSingle ("menu", { lang });
+  // Fetch menu content from Prismic and add it to local variables
+  const menuContent = await req.prismic.api.getSingle("menu", { lang });
   res.locals.menuContent = menuContent;
+
   next();
 }));
 
-// Router for homepage.
-app.get("/:lang/", asyncHandler (async (req, res) => {
+// Homepage route
+app.get("/:lang/", asyncHandler(async (req, res) => {
   const lang = req.params.lang;
-  const prismicResponse = await req.prismic.api.getSingle("homepage", { lang });
-  if (prismicResponse) {
-    res.render("page", { prismicResponse });
+  const document = await req.prismic.api.getSingle("homepage", { lang });
+  if (document) {
+    res.render("page", { document });
   } else {
     res.status(404).render("./error_handlers/404");
   }
 }));
   
-// Router for page.
-app.get("/:lang/:uid", asyncHandler (async (req, res) => {
+// Page router
+app.get("/:lang/:uid", asyncHandler(async (req, res) => {
   const lang = req.params.lang;
   const uid = req.params.uid;
-  const prismicResponse = await req.prismic.api.getByUID("page", uid, { lang })
-  if (prismicResponse) { 
-    res.render("page", { prismicResponse });
+  
+  const document = await req.prismic.api.getByUID("page", uid, { lang })
+  if (document) { 
+    res.render("page", { document });
   } else {
     res.status(404).render("./error_handlers/404");
   }
 }));
 
-// Router handling for un-reachable pages.
-app.get("/:lang/:uid/*",  (req, res) => {
+// 404 route for anything else
+app.get("*", (req, res) => {
   res.status(404).render("./error_handlers/404");
 });
 
