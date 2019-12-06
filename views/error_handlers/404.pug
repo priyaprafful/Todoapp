@@ -1,13 +1,10 @@
-extends ../body
+extends ../layout/global-layout
 
 block body
 
   div.error-container
-    div.error-code
-      h1 404
-    div.error-message
-      h2.error-content Sorry!
-      h6.error-content The page you are looking for was not found.
-      a.btn(href='/')
-        button.btn
-          | Go to the homepage
+    h3 404
+    h2 Sorry!
+    h6 The page you are looking for was not found.
+    a(href='/')
+      button Go to the homepage
