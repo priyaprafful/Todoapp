@@ -2,7 +2,7 @@
   "name": "nodejs-multilang-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Multi-language site with dark-light theme",
+  "description": "Multi-language site with Prismic",
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
