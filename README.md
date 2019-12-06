@@ -13,33 +13,33 @@ An easy way to deploy your Node.js website is to use [Heroku](http://www.heroku.
 Create a new Heroku application
  
 ```
-$ heroku create
+heroku create
 ```
  
 Initialize a new Git repository:
  
 ```
-$ git init
-$ heroku git:remote -a your-heroku-app-name
+git init
+heroku git:remote -a your-heroku-app-name
 ```
  
 Commit your code to the Git repository and deploy it to Heroku:
  
 ```
-$ git add .
-$ git commit -am "make it better"
-$ git push heroku master
+git add .
+git commit -am "make it better"
+git push heroku master
 ```
 Ensure you have at least one node running:
  
 ```
-$ heroku ps:scale web=1
+heroku ps:scale web=1
 ```
  
 You can now browse your application online:
  
 ```
-$ heroku open
+heroku open
  
 ```
  
