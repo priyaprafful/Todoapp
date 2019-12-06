@@ -1,9 +1,8 @@
-extends ./body
+extends ./layout/global-layout
 
 block body
- 
   div.container
-    for slice in prismicResponse.data.page_content
+    for slice in document.data.page_content
       case slice.slice_type
         when "call_to_action"
           include ./slices/call-to-action
@@ -15,3 +14,4 @@ block body
           include ./slices/highlight-section
         when "email_signup"
           include ./slices/email-signup
+          
