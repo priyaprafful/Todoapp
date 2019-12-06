@@ -1,82 +1,8 @@
+/* Common */
 body {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0;
 }
-
-/* Dark- light mode css */
-body.dark-mode {
-  background-color: #000000;
-  color: #FFFFFF 
-}
-body.light-mode {
-  background-color: #FFFFFF;
-  color: rgba(0,0,0,0.80);
-}
-.dark-mode .action-text, 
-.dark-mode .text-subtitle,
-.dark-mode .highlight-text p, 
-.dark-mode.liketext,
-.dark-mode .info-desc p, 
-.dark-mode .email-text,
-.dark-mode .info-text {
-  color: rgba(255,255,255,0.80);
-}
-.dark-mode a, 
-.dark-mode .logo-text {
-  color: #FFFFFF;
-}
-.light-mode a, 
-.light-mode .logo-text {
-  color: #000000;
-}
-.dark-mode .btn-text {
-  background-color: #FFFFFF;
-}
-.dark-mode .img-black,
-.dark-mode .arrow-black,
-.dark-mode .btn-black,
-.dark-mode .dark-icon {
-  display: none;
-}
-.dark-mode .img-white,
-.dark-mode .btn-white {
-  display: block;
-}
-.dark-mode .back-img {
-  opacity: 0.2;
-}
-.light-mode .img-black,
-.light-mode .btn-black {
-  display: block;
-}
-.light-mode .img-white,
-.light-mode .arrow-white,
-.light-mode .btn-white,
-.light-mode .light-icon {
-  display: none;
-}
-.dark-mode .btn-text {
-  color: #000000;
-}
-
-/* CSS for each container */
-.container,
-header,
-footer {
-  max-width: 1080px;
-  margin: auto;
-}
-.action-container,
-.info-container,
-.email-container,
-.highlight-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-/* Common Css */
 h2 {
   line-height: 67px;
   font-size: 56px;
@@ -87,24 +13,69 @@ h4 {
   margin-bottom: 30px;
   line-height: 27px;
 }
-
-
-/* Header CSS */
-.header-container {
-	padding: 20px;
-  margin: 0 auto;
-  margin-bottom: 100px;
-}
 a {
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
 }
-.header-container a {
+
+/* Containers */
+.container,
+header,
+.footer-content {
+  max-width: 1080px;
+  margin: auto;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* Dark-light mode */
+body.dark-mode {
+  background-color: #000000;
+  color: #FFFFFF 
+}
+body.light-mode {
+  background-color: #FFFFFF;
+  color: rgba(0,0,0,0.80);
+}
+.dark-mode .off-white-text p {
+  color: rgba(255,255,255,0.80);
+}
+.dark-mode a, 
+.dark-mode .logo-text {
+  color: #FFFFFF;
+}
+.light-mode a, 
+.light-mode .logo-text {
+  color: #000000;
+}
+.dark-mode .newsletters-btn p {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.dark-mode .dark-asset,
+.light-mode .white-asset {
+  display: none;
+}
+.dark-mode .back-img {
+  opacity: 0.2;
+}
+
+/* Header */
+.header {
+	padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
+.logo-block {
   padding-top: 6px;
   display: flex;
 }
-.check-icon {
+.logo-block img {
   width: 18px;
   height: 18px;
   margin-right: 4px;
@@ -115,12 +86,11 @@ a {
   font-weight: 500;
   line-height: 19px;
 }
-.moon-light-icon, 
-.moon.dark-icon {
+.main-nav img{
   width: 18px;
   vertical-align: text-bottom;
 }
-.main-header .header-container {
+.header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -138,40 +108,38 @@ a {
   padding: .5em 1.5em;
 }
 
-/* Call to action Slice CSS  */
-.action-title {
-  max-width: 613px;
-  font-size: 50px;
+/* Call to action Slice */
+.call-to-action h1 {
+  max-width: 614px;
+  font-size: 100px;
   letter-spacing: 0;
   font-weight: 600;
 }
-.action-text , 
-.email-text, 
-.info-text {
+.call-to-action p {
   margin-top: 20px;
   max-width: 723px;
   line-height: 40px;
   font-size: 23px;
   font-weight: 500;
 }
-.btn-content   {
+.btn-content {
   margin: 298px 0px 0px 235px;
 }
 
-/* Full width image css */
-.image-container  {
+/* Full width image Slice */
+.image-container {
   position: relative;
   padding-top: 110px;
   margin-top: 110px;
   margin-bottom: 220px;
 }
-.full_width_image-right {
+.full-width-image-right {
   position: absolute;
   top: 0;
   right: 0;
   z-index: -2;
 }
-.full_width_image-left {
+.full-width-image-left {
   position: absolute;
   top: 0;
   z-index: -2;
@@ -186,21 +154,23 @@ a {
   height: 608px;
   margin-right: -110px;
 }
-.img-black,
-.img-white {
+.main-image img {
   width: 100%;
 }
 
-/* icon-info-action slice css */
-.info-container {
+/* Icon info section Slice */
+.icon-info-section {
   align-items: unset;
 }
-.info-title {
+.icon-info-section h2 {
   max-width: 463px;
   margin: 30px 0px 20px 0px;
 }
-.info-text  {
+.icon-info-section p {
   max-width: 1075px;
+  line-height: 40px;
+  font-size: 23px;
+  font-weight: 500;
 }
 .info-desc {
   margin-left: 135px;
@@ -214,16 +184,21 @@ a {
   margin-top: 10px;
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
-/* Email-signup CSS */
+/* Email signup Slice */
 .signup-content {
   margin-left: 165px;
 }
-.email-text {
+.email-signup p {
   margin-top: 20px;
+  max-width: 723px;
+  line-height: 40px;
+  font-size: 23px;
+  font-weight: 500;
 }
-.email-add {
+.signup-content input {
   border: 1px solid #E5E5E5;
   border-radius: 6px;
   box-sizing: border-box;
@@ -235,29 +210,22 @@ a {
   background-color: Transparent;
   margin-top: 10px;
 }
-.btn-text {
-  background: #000000;
+.newsletters-btn {
+  background-color: #000000;
   border: 1px solid #000000;
-  border-radius: 4px;
-  padding: 3px;
+  border-radius: 6px;
   line-height: 66px;
   font-size: 18px;
   color: #FFFFFF;
-  height: 66px;
-  letter-spacing: 0;
   text-align: center;
   margin-top: 10px;
 }
-.btn-text p {
-  padding-top: 8px;
-  font-size: 18px;
-}
 
-/* Page CSS --- Highlight-section CSS */
-.highlight-container {
+/* Highlight section Slice */
+.highlight-section {
   margin-bottom: 220px;
 }
-.highlight-title {
+.highlight-content h2 {
   margin-top: 20px;
 }
 .highlight-image {
@@ -266,28 +234,34 @@ a {
 .highlight-image img {
   width: 516px;
 }
-.highlight-text > :first-child {
+.highlight-content > p:first-of-type {
   font-size: 20px;
   line-height: 36px;
+  margin-top: 20px;
 }
-.highlight-text p {
-  line-height: 30px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+.highlight-content > p:last-of-type {
   font-size: 16px;
-  font-weight: 400;
+  line-height: 30px;
+  margin-top: 20px;
 }
 
-/* footer css */
-.footer-container {
-	padding: 20px;
-	margin: 0 auto;
+/* Footer */
+.footer {
+  border-top: 1px solid #2D2D2D;
+  max-width: initial;
+  margin-top: 90px;
 }
-.main-footer .footer-container {
-	display: flex;
+.footer-content {
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
+.footer-content p {
+  font-size: 16px;
+  padding-top: 10px;
 }
 .footer-nav ul {
 	margin: 1em 0 .5em;
@@ -298,59 +272,72 @@ a {
 }
 .footer-nav img {
 	display: inline-block;
-  padding: 5px 21px;
+  padding: 5px 16px;
   width: 19px;
 }
-.horizontal-line {
-  margin-top: 90px;
-}
 
-/* Error-handler CSS */
-.error-code {
-  text-align: center;
-  font-size: 8em;
-  font-weight: 100;
-}
-.error-message {
-  font-size: 2em;
-  text-align: center;
-  font-weight: 100;
-  height: 350px;
-}
-.error-content {
-  margin-bottom: 30px;
-}
-.btn {
-  padding: 20px 30px;
-  margin-top: 20px;
-  border-radius: 20px;
-  font-size: 20px;
-}
-.prismic-error-container {
+
+/* Error handler & 404 pages */
+.error-container {
   max-width: 600px;
   margin: auto;
   margin-top: 230px;
   margin-bottom: 449px;
 }
-.prismic-error-content {
+.error-container h3 {
+  text-align: center;
+  font-size: 8em;
+}
+.error-container h2,
+.error-container h6 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 100;
+}
+.error-container button {
+  padding: 20px 30px;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.error-container nav ul {
   list-style: circle;
 }
-.prismic-error-message ul li {
+.error-container nav ul li {
   margin-bottom: 20px;
 }
 
-/* Media queries */
+
+/**
+ * Media Queries
+ */
+
+/* Desktop padding */
 @media(max-width:1200px) {
-  .header-container, 
-  .container {
+  .header, 
+  .container,
+  .footer-content {
     padding-right: 60px;
     padding-left: 60px;
   }
-  .btn-content   {
+  .call-to-action {
+    justify-content: flex-start;
+  }
+  .btn-content {
     margin: 310px 0px 0px 60px;
   }
-  .highlight-title h2 {
-    font-size: 54px;
+  .back-img {
+    display: none;
+  }
+  .image-container {
+    margin-bottom: 110px;
+    padding-top: 0px;
+  }
+  .highlight-section {
+    margin-bottom: 110px;
+  }
+  h2 {
+    font-size: 48px;
   }
   .signup-content {
     margin-left: 40px;
@@ -366,9 +353,9 @@ a {
   }
 }
 
+/* Tablet breakpoint */
 @media(max-width:1100px) {
-  .header-container, 
-  .action-title, 
+  .header,
   .info-desc {
     margin: auto;
   }
@@ -379,8 +366,9 @@ a {
     text-align: center;
     margin-top: 50px;
   }
-  h1 {
-    font-size: 39px;
+  .call-to-action h1 {
+    font-size: 45px;
+    margin:auto;
   }
   h2 {
     font-size: 32px;
@@ -390,42 +378,31 @@ a {
     line-height: 35px;
     font-size: 20px;
   }
-  .image-container  {
+  .image-container {
     padding-bottom: 30px;
+    padding-top: 30px;
+    margin: 0;
   }
-  .img-black,
-  .img-white {
+  .main-image img {
     padding-top: 25px;
+    padding-bottom: 20px;
   }
   .info-desc h6 {
     line-height: 30px;
     font-size: 20px;
     margin-top: 25px;
   }
-  .info-container {
+  .icon-info-section {
     text-align: left;
   }
-  .action-container,
-  .info-container,
-  .email-container,
-  .highlight-container {
+  section {
     flex-flow: column;
   }
   .btn-content,
   .highlight-image, 
-  .image-container ,
-  .info-container,
-  .email-container,
-  .highlight-container,
   .signup-content {
     margin: 0;
     padding-top:20px;
-  }
-  .back-img {
-    display: none;
-  }
-  .error-handle {
-    font-size: 25px;
   }
   .highlight-image {
     order: 2;
@@ -438,62 +415,54 @@ a {
     margin-bottom: 30px;
     text-align: left; 
   }
- .highlight-container {
+ .highlight-section {
    align-items: unset;
    padding-bottom: 30px;
+   margin: auto;
   }
   .highlight-title h2 {
     font-size: 32px;
-}
+  }
   .error-container {
-    margin-top: 230px;
-  }
-  .error-code h1 {
-    font-size: 80px;
-  }
-  .error-message {
-    margin-bottom: 400px;
-  }
-  .error-content {
-    margin-bottom: 30px;
-  }
-  .prismic-error-container {
     padding: 23px 58px;
   }
 }
 
-@media(max-width:600px) {
-  .main-nav-list li a {
+/* Mobile breakpoint */
+@media(max-width:610px) {
+  .main-nav li a {
     font-size: 12px;
   }
   .logo-text {
     font-size: 15px;
   }
-  .main-header .header-container , 
-  .main-footer .footer-container {
+  .header, 
+  .footer-content {
 		justify-content: space-evenly;
   }
-  .moon-light-icon,.moon.dark-icon {
-    width: 14px;
+  .main-nav img {
+    width: 12px;
   }
   .container, 
-  .header-container {
+  .header {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .email-add {
+  .signup-content input {
     padding: 10px 48px;
     width: 100%;
   }
-  .footer-text {
+  .footer-content p {
     font-size: 12px;
   }
-  .error-handle {
-    font-size: 18px;
+  .footer-content img {
+    width: 13px;
   }
 }
+
+/* Mobile nav breakpoint */
 @media(max-width:350px) {
-  .main-nav-list li a {
+  .main-nav li a {
     font-size: 10px;
   }
-} 
+}
