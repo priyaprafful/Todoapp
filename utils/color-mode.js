@@ -24,7 +24,7 @@ const getColorMode = (req, res) => {
   return colorMode;
 };
 
-// Toggling color mode between light mode and dark mode by changing the cookie colorMode though response.
+// Toggling color mode between light mode and dark mode by changing the cookie colormode through response.
 const toggleColorMode = (req, res) => {
   const colorMode = req.cookies.colorMode;
   
@@ -35,7 +35,7 @@ const toggleColorMode = (req, res) => {
     setColorModeCookie(res, lightModeName);
   }
 
-  // Redirecting to the page, from where toggling color mode is clicked using referrer.
+  // Redirecting to the page, from where toggling color mode is clicked using referer.
   if (req.headers.referer) {
     res.redirect(req.headers.referer);
   } else {
