@@ -42,7 +42,7 @@ body.light-mode {
   background-color: #FFFFFF;
   color: rgba(0,0,0,0.80);
 }
-.dark-mode .off-white-text p {
+.dark-mode .off-white-desc p {
   color: rgba(255,255,255,0.80);
 }
 .dark-mode a, 
@@ -286,13 +286,15 @@ body.light-mode {
 }
 .error-container h3 {
   text-align: center;
-  font-size: 8em;
+  font-size: 60px;
 }
 .error-container h2,
 .error-container h6 {
-  font-size: 2em;
+  font-size: 20px;
   text-align: center;
-  font-weight: 100;
+}
+.back-btn {
+  text-align: center;
 }
 .error-container button {
   padding: 20px 30px;
@@ -324,7 +326,7 @@ body.light-mode {
     justify-content: flex-start;
   }
   .btn-content {
-    margin: 310px 0px 0px 60px;
+    margin: 310px 0px 0px 115px;
   }
   .back-img {
     display: none;
